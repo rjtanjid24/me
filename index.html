@@ -11,13 +11,15 @@
     <meta name="author" content="Tanjid Shuvro">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tanjidshuvro.com/"> <meta property="og:title" content="তানজিদ শুভ্র | শব্দ • শৈলী • সৃজন">
+    <meta property="og:url" content="https://tanjidshuvro.com/"> 
+    <meta property="og:title" content="তানজিদ শুভ্র | শব্দ • শৈলী • সৃজন">
     <meta property="og:description" content="ফিচার রাইটার ও আইসিটি ডিরেক্টর। সৃজনশীল লেখালেখি, কারিগরি দক্ষতা এবং ওয়েব প্রজেক্টের এক ডিজিটাল পোর্টফোলিও।">
-    <meta property="og:image" content="https://rjtanjid24.wordpress.com/wp-content/uploads/2025/12/20240411_162022.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="20240411_162022.jpg"> 
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://tanjidshuvro.com/">
     <meta property="twitter:title" content="তানজিদ শুভ্র | শব্দ • শৈলী • সৃজন">
     <meta property="twitter:description" content="ফিচার রাইটার ও আইসিটি ডিরেক্টর। সৃজনশীল লেখালেখি ও কারিগরি দক্ষতার পোর্টফোলিও।">
-    <meta property="twitter:image" content="https://rjtanjid24.wordpress.com/wp-content/uploads/2025/12/20240411_162022.jpg">
+    <meta property="twitter:image" content="20240411_162022.jpg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +33,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Hind Siliguri"', 'sans-serif'], // এখানে ডিফল্ট ফন্ট হিসেবে সেট করা হয়েছে
+                        sans: ['"Hind Siliguri"', 'sans-serif'], 
                     },
                     colors: {
                         brand: {
@@ -45,10 +47,8 @@
     </script>
 
     <style>
-        /* ফন্ট নিশ্চিত করার জন্য এক্সট্রা ব্যাকআপ */
         body { font-family: 'Hind Siliguri', sans-serif; }
         
-        /* ফুটার ব্যাকগ্রাউন্ড প্যাটার্ন */
         .footer-bg {
             background-color: #0f172a;
             background-size: 30px 30px;
@@ -60,7 +60,6 @@
             pointer-events: none;
         }
 
-        /* Contact Modal Custom Styles */
         .contact-wrapper {
             --card-bg: #ffffff;
             --text-main: #1c1e21;
@@ -97,22 +96,52 @@
         .contact-primary-btn:hover { opacity: 0.9; }
         .email-btn { background-color: var(--email-color); }
         .chithi-btn { background-color: var(--chithi-color); }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
     <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 border-b border-slate-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-slate-900">তানজিদ<span class="text-teal-600">.</span></a>
-            <div class="hidden md:flex space-x-6 text-base font-medium items-center">
-                <a href="#about" class="hover:text-teal-600 transition">গল্প</a>
-                <a href="#ventures" class="hover:text-teal-600 transition">উদ্যোগ</a>
-                <a href="#expertise" class="hover:text-teal-600 transition">নৈপুণ্য</a>
-                <a href="#projects" class="hover:text-teal-600 transition">ওয়েব টুলস</a>
-                <a href="#testimonials" class="hover:text-teal-600 transition">স্বীকৃতি</a>
-                <a href="#awards" class="hover:text-teal-600 transition">সম্মাননা</a>
-                <a href="#gallery" class="hover:text-teal-600 transition">ছবিঘর</a>
-                <button onclick="document.getElementById('contactModal').classList.remove('hidden')" class="bg-slate-900 text-white px-5 py-2 rounded-md hover:bg-slate-800 transition cursor-pointer">যোগাযোগ</button>
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-slate-900">তানজিদ<span class="text-teal-600">.</span></a>
+                
+                <div class="hidden md:flex space-x-6 text-base font-medium items-center">
+                    <a href="#about" class="hover:text-teal-600 transition">গল্প</a>
+                    <a href="#ventures" class="hover:text-teal-600 transition">উদ্যোগ</a>
+                    <a href="#expertise" class="hover:text-teal-600 transition">নৈপুণ্য</a>
+                    <a href="#projects" class="hover:text-teal-600 transition">ওয়েব টুলস</a>
+                    <a href="#testimonials" class="hover:text-teal-600 transition">স্বীকৃতি</a>
+                    <a href="#awards" class="hover:text-teal-600 transition">সম্মাননা</a>
+                    <a href="#gallery" class="hover:text-teal-600 transition">ছবিঘর</a>
+                    <button onclick="document.getElementById('contactModal').classList.remove('hidden')" class="bg-slate-900 text-white px-5 py-2 rounded-md hover:bg-slate-800 transition cursor-pointer">যোগাযোগ</button>
+                </div>
+
+                <button id="menuBtn" class="md:hidden text-slate-900 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="mobile-menu md:hidden flex flex-col mt-4 space-y-4 text-center font-medium bg-white rounded-lg shadow-md pb-4">
+                <a href="#about" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">গল্প</a>
+                <a href="#ventures" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">উদ্যোগ</a>
+                <a href="#expertise" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">নৈপুণ্য</a>
+                <a href="#projects" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">ওয়েব টুলস</a>
+                <a href="#testimonials" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">স্বীকৃতি</a>
+                <a href="#awards" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">সম্মাননা</a>
+                <a href="#gallery" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">ছবিঘর</a>
+                <button onclick="document.getElementById('contactModal').classList.remove('hidden'); document.getElementById('mobileMenu').classList.remove('open');" class="bg-slate-900 text-white mx-4 py-2 rounded-md hover:bg-slate-800 transition cursor-pointer">যোগাযোগ</button>
             </div>
         </div>
     </nav>
@@ -145,7 +174,7 @@
             <div class="md:w-2/5 flex justify-center relative">
                 <div class="absolute -z-10 w-64 h-64 bg-teal-100 rounded-full blur-3xl opacity-50 top-10 right-10"></div>
                 <div class="relative w-72 h-80 bg-slate-200 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition duration-500 border-4 border-white">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2025/12/img_20250710_190208.jpg" alt="তানজিদ শুভ্র" class="object-cover w-full h-full">
+                    <img src="img_20250710_190208.jpg" alt="তানজিদ শুভ্র" class="object-cover w-full h-full">
                 </div>
             </div>
         </div>
@@ -261,7 +290,6 @@
         </div>
     </section>
 
-
 <section id="expertise" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6 text-center mb-12">
             <h2 class="text-3xl font-bold text-slate-900">পারদর্শিতা</h2>
@@ -298,8 +326,6 @@
         </div>
     </section>
 
-
-
     <section id="projects" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
@@ -319,7 +345,7 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                     </div>
                     <h3 class="font-bold text-lg mb-2">Botanica</h3>
-                    <p class="text-sm text-slate-500 mb-4">উদ্ভিদপ্রেমীদের জন্য ইনডোর প্ল্যান্টস ও মানসিক প্রশান্তি বিষয়ক বিশেষ ওয়েভ প্রজেক্ট।</p>
+                    <p class="text-sm text-slate-500 mb-4">উদ্ভিদপ্রেমীদের জন্য ইনডোর প্ল্যান্টস ও মানসিক প্রশান্তি বিষয়ক বিশেষ ওয়েভ প্রজেক্ট।</p>
                     <a href="https://rjtanjid24.github.io/botanica/" class="text-teal-600 font-semibold text-sm hover:underline">Visit Botanica &rarr;</a>
                 </div>
 
@@ -355,7 +381,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 h-80 cursor-pointer">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/mpi.jpg" alt="Award 3" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <img src="mpi.jpg" alt="Award 3" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-300"></div>
                     
@@ -367,7 +393,7 @@
                 </div>
                 
                 <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 h-80 cursor-pointer">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/img-20230925-wa0016-1024x768-1.webp" alt="Award 2" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <img src="img-20230925-wa0016-1024x768-1.webp" alt="Award 2" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-300"></div>
                     
@@ -378,7 +404,7 @@
                     </div>
                 </div>
                 <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 h-80 cursor-pointer">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/btclf-a.jpg" alt="Award 1" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <img src="btclf-a.jpg" alt="Award 1" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-300"></div>
                     
@@ -389,11 +415,9 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
     </section>
-
 
 <section id="testimonials" class="py-24 bg-slate-50 relative overflow-hidden">
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-teal-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
@@ -419,7 +443,7 @@
                     </div>
                     
                     <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/abid-azam.jpg" alt="Abid Azam" class="w-12 h-12 rounded-full object-cover ring-2 ring-teal-500/20">
+                        <img src="abid-azam.jpg" alt="Abid Azam" class="w-12 h-12 rounded-full object-cover ring-2 ring-teal-500/20">
                         <div>
                             <h4 class="font-bold text-slate-900 text-sm">আবিদ আজম</h4>
                             <p class="text-xs text-teal-600 font-medium">সাংবাদিক ও লেখক</p>
@@ -438,7 +462,7 @@
                     </div>
                     
                     <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/habib-mostafa.jpg" alt="Habib Mustafa" class="w-12 h-12 rounded-full object-cover ring-2 ring-teal-500/20">
+                        <img src="habib-mostafa.jpg" alt="Habib Mustafa" class="w-12 h-12 rounded-full object-cover ring-2 ring-teal-500/20">
                         <div>
                             <h4 class="font-bold text-slate-900 text-sm">হাবীব মোস্তফা</h4>
                             <p class="text-xs text-teal-600 font-medium">গীতিকার ও সুরকার</p>
@@ -457,7 +481,7 @@
                     </div>
                     
                     <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/mostafa-kamal-mahdee.jpg" alt="Mostafa Kamal Mahdi" class="w-12 h-12 rounded-full object-cover ring-2 ring-teal-500/20">
+                        <img src="mostafa-kamal-mahdee.jpg" alt="Mostafa Kamal Mahdi" class="w-12 h-12 rounded-full object-cover ring-2 ring-teal-500/20">
                         <div>
                             <h4 class="font-bold text-slate-900 text-sm">মোস্তফা কামাল মাহদী</h4>
                             <p class="text-xs text-teal-600 font-medium">চেয়ারম্যান, দেশগ্রাম মিডিয়া</p>
@@ -480,19 +504,19 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 grid-rows-[200px_200px]">
                 <div class="col-span-2 row-span-2 bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/g_img_00.jpg" alt="Career MeetUp" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <img src="g_img_00.jpg" alt="Career MeetUp" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6">
                         <span class="text-white font-medium">ক্যারিয়ার মিটআপ ঢাকা</span>
                     </div>
                 </div>
                 <div class="bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2023/05/20221130_140005-e1767102349175.jpg" alt="Assessment" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <img src="20221130_140005-e1767102349175.jpg" alt="Assessment" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/dsc06721.jpg" alt="Event" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <img src="dsc06721.jpg" alt="Event" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="col-span-2 bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2026/01/btclf.jpg">
+                    <img src="btclf.jpg">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6">
                         <span class="text-white font-medium">বাংলাদেশ তরুণ কলাম লেখক ফোরাম</span>
                     </div>
@@ -562,7 +586,7 @@
             
             <div class="contact-wrapper bg-white rounded-2xl shadow-sm p-8 text-center mt-8 relative">
                 <div class="contact-header">
-                    <img src="https://rjtanjid24.wordpress.com/wp-content/uploads/2025/12/img_20250710_190208.jpg" alt="Tanjid Shuvro" class="contact-profile-img">
+                    <img src="img_20250710_190208.jpg" alt="Tanjid Shuvro" class="contact-profile-img">
                     <h1>Tanjid Shuvro</h1>
                     <p>Connect with me across the web</p>
                 </div>
@@ -623,5 +647,22 @@
             </div>
         </div>
     </div>
-    </body>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+</body>
 </html>
