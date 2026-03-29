@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tanjid Shuvro | Words • Style • Creation</title>
+    <meta name="title" content="Tanjid Shuvro | Words • Style • Creation">
+    <meta name="description" content="I am Tanjid Shuvro. I love to tell new stories through the weave of words and the independent movement of the cursor.">
+    <meta name="keywords" content="Tanjid Shuvro, Feature Writer, RJ Tanjid, Web Developer, Portfolio, Writer Bangladesh, Tech Enthusiast">
+    <meta name="author" content="Tanjid Shuvro">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tanjidshuvro.com/"> 
+    <meta property="og:title" content="Tanjid Shuvro | Words • Style • Creation">
+    <meta property="og:description" content="Storytelling through words and code. Crafting success stories and empowering youth through ICT.">
+    <meta property="og:image" content="https://rjtanjid24.github.io/me/images/og_tanjid.jpg"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'], 
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            teal: '#14b8a6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .footer-bg {
+            background-color: #0f172a;
+            background-size: 30px 30px;
+        }
+        .footer-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1));
+            pointer-events: none;
+        }
+
+        .contact-wrapper {
+            --card-bg: #ffffff;
+            --text-main: #1c1e21;
+            --text-muted: #65676b;
+            --hover-bg: #f7f8fa;
+            --fb-color: #1877F2;
+            --x-color: #000000;
+            --ig-color: #E4405F;
+            --github-color: #333333;
+            --linkedin-color: #0A66C2;
+            --behance-color: #1769ff;
+            --wordpress-color: #21759b;
+            --email-color: #ea4335;
+            --chithi-color: #8b5cf6;
+        }
+        .contact-profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--card-bg); box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-top: -80px; margin-bottom: 15px; background-color: white; display: inline-block; }
+        .contact-header h1 { margin: 0 0 0.25rem 0; font-size: 1.8rem; color: var(--text-main); font-weight: bold; }
+        .contact-header p { color: var(--text-muted); margin: 0 0 2rem 0; font-size: 1rem; }
+        .contact-section-title { text-align: left; font-size: 0.9rem; font-weight: 600; margin: 1.5rem 0 0.8rem 0; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;}
+        .contact-link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+        .contact-link-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: var(--text-main); background-color: var(--card-bg); border: 1px solid #e1e4e8; border-radius: 10px; font-weight: 500; transition: all 0.2s ease; text-align: left;}
+        .contact-link-item:hover { background-color: var(--hover-bg); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .contact-link-item i { font-size: 1.4rem; margin-right: 12px; width: 24px; text-align: center; }
+        .color-fb { color: var(--fb-color); }
+        .color-x { color: var(--x-color); }
+        .color-ig { color: var(--ig-color); }
+        .color-github { color: var(--github-color); }
+        .color-linkedin { color: var(--linkedin-color); }
+        .color-behance { color: var(--behance-color); }
+        .color-wp { color: var(--wordpress-color); }
+        .color-web { color: var(--text-muted); }
+        .contact-action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 2rem; }
+        .contact-primary-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 24px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; transition: opacity 0.2s ease;}
+        .contact-primary-btn:hover { opacity: 0.9; }
+        .email-btn { background-color: var(--email-color); }
+        .chithi-btn { background-color: var(--chithi-color); }
+        
+        .mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 border-b border-slate-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-slate-900">Tanjid<span class="text-teal-600">.</span></a>
+                
+                <div class="hidden md:flex space-x-6 text-sm font-semibold items-center uppercase tracking-wide">
+                    <a href="#about" class="hover:text-teal-600 transition">Story</a>
+                    <a href="#ventures" class="hover:text-teal-600 transition">Ventures</a>
+                    <a href="#expertise" class="hover:text-teal-600 transition">Expertise</a>
+                    <a href="#projects" class="hover:text-teal-600 transition">Tools</a>
+                    <a href="#testimonials" class="hover:text-teal-600 transition">Recognition</a>
+                    <a href="#awards" class="hover:text-teal-600 transition">Awards</a>
+                    <a href="#gallery" class="hover:text-teal-600 transition">Gallery</a>
+                    <a href="index.html" class="hover:text-teal-600 transition">BN</a>
+                    <button onclick="document.getElementById('contactModal').classList.remove('hidden')" class="bg-slate-900 text-white px-5 py-2 rounded-md hover:bg-slate-800 transition cursor-pointer">Contact</button>
+                </div>
+
+                <button id="menuBtn" class="md:hidden text-slate-900 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="mobile-menu md:hidden flex flex-col mt-4 space-y-4 text-center font-medium bg-white rounded-lg shadow-md pb-4">
+                <a href="#about" class="block py-2 hover:text-teal-600 transition border-b border-slate-50">Story</a>
+                <a href="#ventures" class="block py-2 hover:text-teal-600 transition border-b border-slate-100">Ventures</a>
+                <a href="#expertise" class="block py-2 hover:text-teal-600 transition border-b border-slate-100">Expertise</a>
+                <a href="#projects" class="block py-2 hover:text-teal-600 transition border-b border-slate-100">Tools</a>
+                <a href="#testimonials" class="block py-2 hover:text-teal-600 transition border-b border-slate-100">Recognition</a>
+                <button onclick="document.getElementById('contactModal').classList.remove('hidden'); document.getElementById('mobileMenu').classList.remove('open');" class="bg-slate-900 text-white mx-4 py-2 rounded-md hover:bg-slate-800 transition">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-24 px-6 bg-white relative z-10">
+        <div class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-16">
+            <div class="md:w-3/5 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    Words • Style • Vitality
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+                    Words, Colors and <br> <span class="text-teal-600">Stories of Innovation</span>
+                </h1>
+                <p class="text-lg text-slate-600 max-w-xl leading-relaxed text-justify">
+                    Greetings! I am <strong>Tanjid Shuvro</strong>. I find joy in weaving words and navigating the creative flow of the cursor to bring new stories to life. Seeing others succeed is my greatest fulfillment. <br><br>
+                    I am actively involved in the organizational journey of the <strong>Bangladesh Young Column Writers Forum</strong>, one of the largest youth platforms in the country, working to develop the skills of the next generation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#projects" class="flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition shadow-lg hover:shadow-xl">
+                        View Projects
+                    </a>
+                    <button onclick="document.getElementById('contactModal').classList.remove('hidden')" class="flex items-center justify-center gap-2 border border-slate-300 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition cursor-pointer">
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+            
+            <div class="md:w-2/5 flex justify-center relative">
+                <div class="absolute -z-10 w-64 h-64 bg-teal-100 rounded-full blur-3xl opacity-50 top-10 right-10"></div>
+                <div class="relative w-72 h-80 bg-slate-200 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition duration-500 border-4 border-white">
+                    <img src="https://rjtanjid24.github.io/me/images/profile.jpg" alt="Tanjid Shuvro" class="object-cover w-full h-full">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row gap-16 items-start">
+                <div class="md:w-1/2">
+                    <h2 class="text-sm font-bold text-teal-600 uppercase tracking-widest mb-3">About Me</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Writing is my Core Identity</h3>
+                    
+                    <div class="prose prose-lg text-slate-600 space-y-6 text-justify">
+                        <p>
+                            Some express themselves through speech; I do it through words. For over four years, I have written features for national dailies, shaping stories of human lives. Writing is my passion, which led me to leadership at the <strong>Bangladesh Young Column Writers Forum</strong>.
+                        </p>
+                        <p>
+                            Technical skills have now merged with this creative journey. Currently, I serve as the Director of the Fulbaria ICT Training Institute and am a <strong>Certified Trainer and Assessor</strong> under the National Skills Development Authority (NSDA) and the Bangladesh Technical Education Board (BTEB).
+                        </p>
+                        <p>My goal is simple—to let my writing provoke thought and my teachings empower youth to become self-reliant. I am Tanjid—an equation of story and speed.</p>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 w-full">
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 relative overflow-hidden">
+    
+                        <div class="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-teal-50 rounded-full blur-2xl opacity-60"></div>
+
+                        <h4 class="font-bold text-slate-900 mb-8 border-b border-slate-100 pb-4 text-xl flex items-center gap-2 relative z-10">
+                            Milestones At A Glance
+                        </h4>
+                        
+                        <div class="space-y-8 relative z-10">
+                            
+                            <div class="flex items-start gap-5 group">
+                                <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 mt-1 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-sm">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition">Journalism & Writing</h5>
+                                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
+                                        Head of Department, <strong>Sahitya Sakal, Dainik Alokito Sakal</strong>. Regular contributor to Ittefaq, Jugantor, Kaler Kantho, and Jago News.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-5 group">
+                                <div class="w-12 h-12 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 mt-1 shrink-0 group-hover:bg-teal-600 group-hover:text-white transition duration-300 shadow-sm">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 text-lg group-hover:text-teal-600 transition">Ventures & Management</h5>
+                                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
+                                        Director, <strong>Fulbaria ICT Training Institute</strong> and Co-founder, <strong>eBoiBitan</strong>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-5 group">
+                                <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 mt-1 shrink-0 group-hover:bg-purple-600 group-hover:text-white transition duration-300 shadow-sm">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 text-lg group-hover:text-purple-600 transition">National Trainer</h5>
+                                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">
+                                        BTEB & NSDA approved <strong>Certified Assessor</strong> and <strong>CBT&A Trainer</strong>.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ventures" class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">The Journey</h2>
+                <p class="text-slate-400 mt-2">Where initiatives take a tangible form</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-teal-500 transition duration-300 group">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 overflow-hidden border-4 border-slate-700 group-hover:border-teal-500 transition duration-300">
+                        <img src="https://rjtanjid24.github.io/me/images/eboibitan.jpg" alt="E-Boi Bitan Logo" class="w-full h-full object-cover p-1">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">eBoiBitan</h3>
+                    <span class="inline-block bg-teal-600 text-[10px] uppercase font-bold px-2 py-1 rounded mb-4">Co-Founder</span>
+                    <p class="text-slate-400 leading-relaxed mb-6 text-sm">
+                        Since 2020, eBoiBitan has been working reliably to deliver academic, career preparation, and non-fiction books across the country.
+                    </p>
+                    <a href="https://eboibitan.com/" class="text-teal-400 hover:text-white font-semibold text-sm flex items-center gap-2">
+                        Visit Website &rarr;
+                    </a>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition duration-300 group">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 overflow-hidden border-4 border-slate-700 group-hover:border-blue-500 transition duration-300">
+                        <img src="https://rjtanjid24.github.io/me/images/fict.jpg" alt="Fulbaria ICT Logo" class="w-full h-full object-cover p-1">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Fulbaria ICT Institute</h3>
+                    <span class="inline-block bg-blue-600 text-[10px] uppercase font-bold px-2 py-1 rounded mb-4">Director</span>
+                    <p class="text-slate-400 leading-relaxed mb-6 text-sm">
+                        Providing hands-on ICT education in modern labs. Our mission is to make local youth fit for employment and entrepreneurship.
+                    </p>
+                    <a href="https://fulbariaiti.com/" class="text-blue-400 hover:text-white font-semibold text-sm flex items-center gap-2">
+                        Learn More &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-6 text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">Expertise</h2>
+            <p class="text-slate-500 mt-2">The synergy of creativity and technology</p>
+        </div>
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="group p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300">
+                <div class="w-14 h-14 bg-slate-50 rounded-lg flex items-center justify-center mb-6 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Content Writing</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Storytelling through words. Turning ordinary events into extraordinary ones with the magic of phrasing and years of experience.
+                </p>
+            </div>
+            <div class="group p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300">
+                <div class="w-14 h-14 bg-slate-50 rounded-lg flex items-center justify-center mb-6 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Graphic Design</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Logo, book/magazine covers, and social media post design. National Skill Level-3 certified professional.
+                </p>
+            </div>
+            <div class="group p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300">
+                <div class="w-14 h-14 bg-slate-50 rounded-lg flex items-center justify-center mb-6 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Assessment</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Extensive experience in competency-based assessment under NSDA and BTEB.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold text-slate-900">Web Tools & Projects</h2>
+                    <p class="text-slate-500 mt-2">Recent web applications I've developed</p>
+                </div>
+                <a href="https://github.com/rjtanjid24" target="_blank" class="hidden md:inline-flex items-center gap-2 text-slate-900 font-bold hover:text-teal-600 transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub Profile
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="group border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-teal-500 transition duration-300">
+                    <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600 mb-4 group-hover:bg-teal-600 group-hover:text-white transition">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Botanica</h3>
+                    <p class="text-sm text-slate-500 mb-4">A fun web game featuring various terms from the plant world.</p>
+                    <a href="https://rjtanjid24.github.io/botanica/" class="text-teal-600 font-bold text-sm hover:underline">Visit Botanica &rarr;</a>
+                </div>
+
+                <div class="group border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-teal-500 transition duration-300">
+                    <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 mb-4 group-hover:bg-purple-600 group-hover:text-white transition">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Profile Pic Generator</h3>
+                    <p class="text-sm text-slate-500 mb-4">An automated tool to create framed profile pictures for social media.</p>
+                    <a href="https://rjtanjid24.github.io/profile-frame-generator/" class="text-teal-600 font-bold text-sm hover:underline">Get Your Pic! &rarr;</a>
+                </div>
+
+                <div class="group border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-teal-500 transition duration-300">
+                    <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 mb-4 group-hover:bg-orange-600 group-hover:text-white transition">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Greeting Card Tool</h3>
+                    <p class="text-sm text-slate-500 mb-4">Web application to generate custom greeting cards with name and designation.</p>
+                    <a href="https://rjtanjid24.github.io/greeting-card/" class="text-teal-600 font-bold text-sm hover:underline">View Tool &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">Awards & Recognition</h2>
+                <p class="text-slate-500 mt-2">The fuel that drives my journey forward</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+               <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 h-80 cursor-pointer">
+                    <img src="https://rjtanjid24.github.io/me/images/mpi.jpg" alt="Award 3" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition duration-300">
+                        <div class="w-10 h-1 bg-teal-500 mb-3 rounded-full"></div>
+                        <h3 class="text-white text-xl font-bold mb-1">Youth Festival 2025</h3>
+                        <p class="text-slate-300 text-sm">Employer Organization Recognition</p>
+                    </div>
+                </div>
+                
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 h-80 cursor-pointer">
+                    <img src="https://rjtanjid24.github.io/me/images/srw.jpg" alt="Award 2" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition duration-300">
+                        <div class="w-10 h-1 bg-teal-500 mb-3 rounded-full"></div>
+                        <h3 class="text-white text-xl font-bold mb-1">Shahina Rob Memorial Award</h3>
+                        <p class="text-slate-300 text-sm">Contribution to Feature Journalism</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 h-80 cursor-pointer">
+                    <img src="https://rjtanjid24.github.io/me/images/btclf-a.jpg" alt="Award 1" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition duration-300">
+                        <div class="w-10 h-1 bg-teal-500 mb-3 rounded-full"></div>
+                        <h3 class="text-white text-xl font-bold mb-1">Feature Writer of the Year</h3>
+                        <p class="text-slate-300 text-sm">Bangladesh Young Column Writers Forum</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">Voices of Inspiration</h2>
+                <p class="text-slate-500 mt-2">Feedback from those who inspire my path</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="text-teal-500 mb-4 opacity-50"><i class="fas fa-quote-left text-3xl"></i></div>
+                        <p class="text-slate-600 italic leading-relaxed mb-6">
+                            "Tanjid is a feature writer, journalist, and a radio host. He has blossomed through various creative outlets. His love for people is immense."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <img src="https://rjtanjid24.github.io/me/images/abid-azam.jpg" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Abid Azam</h4>
+                            <p class="text-xs text-teal-600 font-medium">Journalist & Author</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="text-teal-500 mb-4 opacity-50"><i class="fas fa-quote-left text-3xl"></i></div>
+                        <p class="text-slate-600 italic leading-relaxed mb-6">
+                            "An exceptionally talented and energetic young man with immense potential. He is unique as a news worker, RJ, and literary critic."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <img src="https://rjtanjid24.github.io/me/images/habib-mostafa.jpg" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Habib Mustafa</h4>
+                            <p class="text-xs text-teal-600 font-medium">Lyricist & Composer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="text-teal-500 mb-4 opacity-50"><i class="fas fa-quote-left text-3xl"></i></div>
+                        <p class="text-slate-600 italic leading-relaxed mb-6">
+                            "Tanjid's news coverage and writing are extremely mature for his age. He plays a brilliant role in the world of journalism."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <img src="https://rjtanjid24.github.io/me/images/mostafa-kamal-mahdee.jpg" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Mostafa Kamal Mahdee</h4>
+                            <p class="text-xs text-teal-600 font-medium">Chairman, Deshgram Media</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="footer-bg text-white py-16 border-t border-slate-800 relative">
+        <div class="footer-overlay"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="text-center md:text-left space-y-4">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white tracking-tight">Tanjid<span class="text-teal-500">.</span></h2>
+                        <p class="text-[10px] text-slate-500 tracking-[0.3em] uppercase mt-1">Words • Style • Creation</p>
+                    </div>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="https://facebook.com/t1nj94" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#1877F2] hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/therjtanjid/" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#0A66C2] hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/rjtanjid24" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-black transition-all"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center justify-center gap-5">
+                    <a href="mailto:rjtanjid24@gmail.com" class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-[#EA4335] hover:text-white transition-all"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+8809696126075" class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-[#00D146] hover:text-white transition-all"><i class="fas fa-phone"></i></a>
+                </div>
+
+                <div class="text-center md:text-right space-y-2">
+                    <p class="text-slate-400 text-sm">© 2026 Tanjid Shuvro. All Rights Reserved</p>
+                    <div class="text-xs text-slate-500">Designed by <a href="#" class="text-slate-300 font-bold">RJ Tanjid</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contactModal" class="hidden fixed inset-0 z-[100] flex justify-center items-center bg-slate-900/60 backdrop-blur-sm" onclick="if(event.target === this) this.classList.add('hidden')">
+        <div class="relative w-full max-w-2xl bg-slate-100/50 md:rounded-2xl shadow-2xl overflow-y-auto max-h-[90vh] p-4 md:p-8">
+            <button onclick="document.getElementById('contactModal').classList.add('hidden')" class="absolute top-4 right-4 bg-white text-slate-600 hover:text-red-500 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition z-20">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="contact-wrapper bg-white rounded-2xl shadow-sm p-8 text-center mt-8 relative">
+                <div class="contact-header">
+                    <img src="https://rjtanjid24.github.io/me/images/tanjid.jpg" alt="Tanjid Shuvro" class="contact-profile-img">
+                    <h1>Tanjid Shuvro</h1>
+                    <p>Connect with me across the web</p>
+                </div>
+
+                <div class="contact-section-title">Portfolios & Websites</div>
+                <div class="contact-link-grid">
+                    <a href="#" class="contact-link-item"><i class="fas fa-globe color-web"></i> Portfolio</a>
+                    <a href="#" class="contact-link-item"><i class="fab fa-github color-github"></i> GitHub</a>
+                </div>
+
+                <div class="contact-action-buttons">
+                    <a href="mailto:rjtanjid24@gmail.com" class="contact-primary-btn email-btn">Email Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    </script>
+</body>
+</html>
