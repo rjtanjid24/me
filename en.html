@@ -497,10 +497,10 @@
         </div>
     </footer>
 
-    <div id="contactModal" class="hidden fixed inset-0 z-[100] flex justify-center items-center bg-slate-900/60 backdrop-blur-sm" onclick="if(event.target === this) this.classList.add('hidden')">
+    <div id="contactModal" class="hidden fixed inset-0 z-[100] flex justify-center items-center bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="if(event.target === this) this.classList.add('hidden')">
         <div class="relative w-full max-w-2xl bg-slate-100/50 md:rounded-2xl shadow-2xl overflow-y-auto max-h-[90vh] p-4 md:p-8">
             <button onclick="document.getElementById('contactModal').classList.add('hidden')" class="absolute top-4 right-4 bg-white text-slate-600 hover:text-red-500 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition z-20">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times text-xl"></i>
             </button>
             
             <div class="contact-wrapper bg-white rounded-2xl shadow-sm p-8 text-center mt-8 relative">
@@ -512,16 +512,61 @@
 
                 <div class="contact-section-title">Portfolios & Websites</div>
                 <div class="contact-link-grid">
-                    <a href="#" class="contact-link-item"><i class="fas fa-globe color-web"></i> Portfolio</a>
-                    <a href="#" class="contact-link-item"><i class="fab fa-github color-github"></i> GitHub</a>
+                    <a href="https://rjtanjid24.github.io/me/" target="_blank" class="contact-link-item">
+                        <i class="fas fa-globe color-web"></i> Personal Website
+                    </a>
+                    <a href="https://github.com/rjtanjid24" target="_blank" class="contact-link-item">
+                        <i class="fab fa-github color-github"></i> GitHub
+                    </a>
+                    <a href="https://www.behance.net/RJTanjid24" target="_blank" class="contact-link-item">
+                        <i class="fab fa-behance color-behance"></i> Behance
+                    </a>
+                    <a href="https://rjtanjid24.wordpress.com/" target="_blank" class="contact-link-item">
+                        <i class="fab fa-wordpress color-wp"></i> WordPress Blog
+                    </a>
+                </div>
+
+                <div class="contact-section-title">Professional & Social</div>
+                <div class="contact-link-grid">
+                    <a href="https://www.linkedin.com/in/therjtanjid/" target="_blank" class="contact-link-item">
+                        <i class="fab fa-linkedin color-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://x.com/rjtanjid24" target="_blank" class="contact-link-item">
+                        <i class="fab fa-x-twitter color-x"></i> X (Twitter)
+                    </a>
+                    <a href="https://instagram.com/rjtanjid24" target="_blank" class="contact-link-item">
+                        <i class="fab fa-instagram color-ig"></i> Instagram
+                    </a>
+                </div>
+
+                <div class="contact-section-title">Facebook</div>
+                <div class="contact-link-grid">
+                    <a href="https://web.facebook.com/tanjid.ahamed.779" target="_blank" class="contact-link-item">
+                        <i class="fas fa-user color-fb"></i> Personal Profile
+                    </a>
+                    <a href="https://facebook.com/rjtanjid24" target="_blank" class="contact-link-item">
+                        <i class="fas fa-flag color-fb"></i> Main Page
+                    </a>
+                    <a href="https://facebook.com/t1nj94" target="_blank" class="contact-link-item">
+                        <i class="fas fa-flag color-fb"></i> Alternate Page
+                    </a>
+                    <a href="https://web.facebook.com/groups/RJTanjid24" target="_blank" class="contact-link-item">
+                        <i class="fas fa-users color-fb"></i> Facebook Group
+                    </a>
                 </div>
 
                 <div class="contact-action-buttons">
-                    <a href="mailto:rjtanjid24@gmail.com" class="contact-primary-btn email-btn">Email Me</a>
+                    <a href="mailto:tanjid@jagobulletin.com" class="contact-primary-btn email-btn">
+                        <i class="fas fa-envelope"></i> tanjid@jagobulletin.com
+                    </a>
+                    <a href="https://chithi.me/tanjids" target="_blank" class="contact-primary-btn chithi-btn">
+                        <i class="fas fa-paper-plane"></i> Send me an anonymous message
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script>
         const menuBtn = document.getElementById('menuBtn');
