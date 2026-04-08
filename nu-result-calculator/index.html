@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>NU Result Calculator | GPA & CGPA</title>
+    <meta name="description" content="A fast, mobile-friendly GPA and CGPA calculator for National University (NU) students. Easily calculate your academic results.">
+    <meta name="keywords" content="NU Result, NU Calculator, CGPA Calculator, GPA Calculator, National University Bangladesh, Result Calculator">
+    <meta name="author" content="Tanjid Shuvro">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="NU Result Calculator | GPA & CGPA">
+    <meta property="og:description" content="A fast, mobile-friendly GPA and CGPA calculator for National University (NU) students.">
+    <meta property="og:url" content="https://tanjidshuvro.pro.bd/">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f3f4f6;
+            --card: #ffffff;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --danger: #ef4444;
+            --success: #10b981;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh;
+        }
+
+        .app-container { 
+            max-width: 600px; 
+            width: 100%; 
+            background: var(--card); 
+            min-height: 100vh;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px 20px;
+            background: var(--primary);
+            color: white;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .header-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+            fill: white;
+        }
+
+        h1 { 
+            font-size: 1.5rem; 
+            font-weight: 600;
+        }
+
+        .tabs { 
+            display: flex; 
+            margin: 20px;
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 5px;
+        }
+
+        .tab { 
+            flex: 1; 
+            text-align: center; 
+            padding: 12px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            color: var(--text-light); 
+            border-radius: 8px;
+            transition: 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .tab.active { 
+            background: white;
+            color: var(--primary); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .content {
+            padding: 0 20px;
+            flex-grow: 1;
+        }
+
+        .calculator-section { display: none; }
+        .calculator-section.active { display: block; animation: fadeIn 0.3s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .instruction {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .row-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 8px;
+            background: white;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .row-item:last-child {
+            border-bottom: none;
+        }
+
+        .row-header {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 5px;
+        }
+
+        input, select { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            outline: none; 
+            font-size: 0.9rem;
+            background: #f9fafb;
+            transition: 0.2s;
+        }
+
+        input:focus, select:focus { 
+            border-color: var(--primary); 
+            background: white;
+        }
+
+        button { 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            transition: 0.3s; 
+        }
+
+        .btn-remove { 
+            background-color: #fee2e2; 
+            color: var(--danger); 
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .btn-remove:hover { background-color: #fecaca; }
+
+        .btn-add { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px dashed #d1d5db;
+        }
+        
+        .btn-add:hover { background-color: #e5e7eb; }
+
+        .btn-calc { 
+            background-color: var(--primary); 
+            color: white; 
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-calc:hover { background-color: var(--primary-hover); }
+
+        .result-box { 
+            background-color: #eef2ff; 
+            border: 1px solid #c7d2fe; 
+            padding: 20px; 
+            border-radius: 12px; 
+            text-align: center; 
+            display: none; 
+            margin-top: 20px; 
+            margin-bottom: 20px;
+        }
+
+        .result-box span { 
+            font-weight: 700; 
+            font-size: 2rem; 
+            color: var(--primary); 
+            display: block;
+            margin: 5px 0;
+        }
+
+        .error { color: var(--danger); font-size: 0.85rem; margin-top: 10px; }
+
+        footer { 
+            text-align: center; 
+            padding: 20px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background: var(--bg);
+            margin-top: auto;
+        }
+
+        footer a { color: var(--primary); text-decoration: none; font-weight: 500; }
+        .disclaimer { font-size: 0.75rem; opacity: 0.8; margin-top: 5px; }
+
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <svg class="header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3ZM18.82 9L12 12.72L5.18 9L12 5.28L18.82 9ZM17 15.99L12 18.72L7 15.99V12.27L12 15L17 12.27V15.99Z"/>
+        </svg>
+        <h1>NU Result Calculator</h1>
+    </header>
+    
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('gpa')">GPA (Yearly)</div>
+        <div class="tab" onclick="switchTab('cgpa')">CGPA (Overall)</div>
+    </div>
+
+    <div class="content">
+        <div id="gpa-section" class="calculator-section active">
+            <p class="instruction">Enter your paper codes, credits, and obtained grades.</p>
+            
+            <div class="row-item row-header">
+                <div>Paper Code</div>
+                <div>Credit</div>
+                <div>Grade</div>
+                <div></div>
+            </div>
+
+            <div id="gpa-body">
+                <div class="row-item">
+                    <input type="number" placeholder="221109">
+                    <input type="number" class="gpa-credit" min="1" step="0.5" value="4">
+                    <select class="gpa-grade">
+                        <option value="4.00">A+</option>
+                        <option value="3.75">A</option>
+                        <option value="3.50">A-</option>
+                        <option value="3.25">B+</option>
+                        <option value="3.00">B</option>
+                        <option value="2.75">B-</option>
+                        <option value="2.50">C+</option>
+                        <option value="2.25">C</option>
+                        <option value="2.00">D</option>
+                        <option value="0.00">F</option>
+                    </select>
+                    <button class="btn-remove" onclick="removeRow(this)">✕</button>
+                </div>
+            </div>
+
+            <button class="btn-add" onclick="addGpaRow()">+ Add Another Paper</button>
+            <button class="btn-calc" onclick="calculateGPA()">Calculate GPA</button>
+            <div id="gpa-result" class="result-box"></div>
+        </div>
+
+        <div id="cgpa-section" class="calculator-section">
+            <p class="instruction">Enter the total credits and GPA for each academic year.</p>
+            
+            <div class="row-item row-header">
+                <div>Year Name</div>
+                <div>Credit</div>
+                <div>GPA</div>
+                <div></div>
+            </div>
+
+            <div id="cgpa-body">
+                <div class="row-item">
+                    <input type="text" placeholder="1st Year" value="1st Year">
+                    <input type="number" class="cgpa-credit" min="1" step="0.5" placeholder="e.g. 28">
+                    <input type="number" class="cgpa-gpa" min="0" max="4" step="0.01" placeholder="e.g. 3.32">
+                    <button class="btn-remove" onclick="removeRow(this)">✕</button>
+                </div>
+            </div>
+
+            <button class="btn-add" onclick="addCgpaRow()">+ Add Another Year</button>
+            <button class="btn-calc" onclick="calculateCGPA()">Calculate CGPA</button>
+            <div id="cgpa-result" class="result-box"></div>
+        </div>
+    </div>
+
+    <footer>
+        Developed by <a href="https://rjtanjid24.github.io/me/" target="_blank">Tanjid Shuvro</a>
+        <div class="disclaimer">Disclaimer: This tool is independent and not affiliated with NU.</div>
+    </footer>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.calculator-section').forEach(s => s.classList.remove('active'));
+        
+        if (tabId === 'gpa') {
+            document.querySelectorAll('.tab')[0].classList.add('active');
+            document.getElementById('gpa-section').classList.add('active');
+        } else {
+            document.querySelectorAll('.tab')[1].classList.add('active');
+            document.getElementById('cgpa-section').classList.add('active');
+        }
+    }
+
+    function removeRow(btn) {
+        btn.closest('.row-item').remove();
+    }
+
+    // GPA Functions
+    function addGpaRow() {
+        const container = document.getElementById('gpa-body');
+        const row = document.createElement('div');
+        row.className = 'row-item';
+        row.innerHTML = `
+            <input type="number" placeholder="221109">
+            <input type="number" class="gpa-credit" min="1" step="0.5" value="4">
+            <select class="gpa-grade">
+                <option value="4.00">A+</option>
+                <option value="3.75">A</option>
+                <option value="3.50">A-</option>
+                <option value="3.25">B+</option>
+                <option value="3.00">B</option>
+                <option value="2.75">B-</option>
+                <option value="2.50">C+</option>
+                <option value="2.25">C</option>
+                <option value="2.00">D</option>
+                <option value="0.00">F</option>
+            </select>
+            <button class="btn-remove" onclick="removeRow(this)">✕</button>
+        `;
+        container.appendChild(row);
+    }
+
+    function calculateGPA() {
+        const credits = document.querySelectorAll('.gpa-credit');
+        const grades = document.querySelectorAll('.gpa-grade');
+        let totalEarnedPoints = 0;
+        let totalCredit = 0;
+        let hasFail = false;
+
+        for (let i = 0; i < credits.length; i++) {
+            const credit = parseFloat(credits[i].value);
+            const gradePoint = parseFloat(grades[i].value);
+
+            if (isNaN(credit)) continue;
+            if (gradePoint === 0) hasFail = true;
+
+            totalCredit += credit;
+            totalEarnedPoints += (credit * gradePoint);
+        }
+
+        const resultBox = document.getElementById('gpa-result');
+        resultBox.style.display = 'block';
+
+        if (totalCredit === 0) {
+            resultBox.innerHTML = '<div class="error">Please input valid credits.</div>';
+            return;
+        }
+
+        if (hasFail) {
+            resultBox.innerHTML = `Result: <span style="color: var(--danger);">Fail (F)</span><div class="error">GPA is not calculated if there is an 'F' grade.</div>`;
+        } else {
+            const gpa = (totalEarnedPoints / totalCredit).toFixed(2);
+            resultBox.innerHTML = `Your GPA is: <span>${gpa}</span><small style="color: var(--text-light); font-size: 0.8rem;">(Total Credits: ${totalCredit} | Earned Points: ${totalEarnedPoints.toFixed(2)})</small>`;
+        }
+    }
+
+    // CGPA Functions
+    function addCgpaRow() {
+        const container = document.getElementById('cgpa-body');
+        const row = document.createElement('div');
+        row.className = 'row-item';
+        row.innerHTML = `
+            <input type="text" placeholder="e.g. 2nd Year">
+            <input type="number" class="cgpa-credit" min="1" step="0.5" placeholder="Credit">
+            <input type="number" class="cgpa-gpa" min="0" max="4" step="0.01" placeholder="GPA">
+            <button class="btn-remove" onclick="removeRow(this)">✕</button>
+        `;
+        container.appendChild(row);
+    }
+
+    function calculateCGPA() {
+        const credits = document.querySelectorAll('.cgpa-credit');
+        const gpas = document.querySelectorAll('.cgpa-gpa');
+        let totalEarnedPoints = 0;
+        let totalCredit = 0;
+
+        for (let i = 0; i < credits.length; i++) {
+            const credit = parseFloat(credits[i].value);
+            const gpa = parseFloat(gpas[i].value);
+
+            if (isNaN(credit) || isNaN(gpa)) continue;
+
+            totalCredit += credit;
+            totalEarnedPoints += (credit * gpa);
+        }
+
+        const resultBox = document.getElementById('cgpa-result');
+        resultBox.style.display = 'block';
+
+        if (totalCredit === 0) {
+            resultBox.innerHTML = '<div class="error">Please input valid data.</div>';
+            return;
+        }
+
+        const cgpa = (totalEarnedPoints / totalCredit).toFixed(2);
+        resultBox.innerHTML = `Your CGPA is: <span>${cgpa}</span><small style="color: var(--text-light); font-size: 0.8rem;">(Total Credits: ${totalCredit} | Total Points: ${totalEarnedPoints.toFixed(2)})</small>`;
+    }
+</script>
+
+</body>
+</html>
