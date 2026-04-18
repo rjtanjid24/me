@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send a Message</title>
+    <title>Send an Anonymous Message</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
@@ -128,7 +128,6 @@
             cursor: not-allowed;
         }
 
-        /* Status Messages */
         #statusMessage {
             margin-top: 15px;
             text-align: center;
@@ -139,7 +138,6 @@
         .success { color: #10b981; }
         .error { color: #ef4444; }
         
-        /* Simple spinner */
         .spinner {
             display: none;
             width: 18px;
@@ -161,18 +159,18 @@
     <div class="form-container">
         <div class="form-header">
             <h2>আমাকে একটি বার্তা পাঠান</h2>
-            <p>আপনার মতামত বা প্রশ্ন লিখে নিচে সাবমিট করুন।</p>
+            <p>আপনার পরিচয় গোপন রেখেই বার্তা বা মতামত জানাতে পারেন।</p>
         </div>
 
         <form id="messageForm">
             <div class="input-group">
                 <label for="name">আপনার নাম</label>
-                <input type="text" id="name" name="name" required placeholder="নাম লিখুন">
+                <input type="text" id="name" name="name" required placeholder="নাম বা ছদ্মনাম লিখুন">
             </div>
 
             <div class="input-group">
-                <label for="email">ইমেইল এড্রেস</label>
-                <input type="email" id="email" name="email" required placeholder="email@example.com">
+                <label for="email">ইমেইল এড্রেস (ঐচ্ছিক)</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com">
             </div>
 
             <div class="input-group">
@@ -190,8 +188,8 @@
     </div>
 
     <script>
-        // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZynAjWJGT0SQXS2WpiftLDmqwwJFuXTiAwXAUYexKzdBkeyVWf8l076MJP-HP2Lnt/exec';
+        // এখানে আপনার Google Apps Script এর URL বসান
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZynAjWJGT0SQXS2WpiftLDmqwwJFuXTiAwXAUYexKzdBkeyVWf8l076MJP-HP2Lnt/exec'; 
 
         const form = document.getElementById('messageForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -202,41 +200,41 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // UI Update: Loading state
             submitBtn.disabled = true;
             btnText.textContent = 'পাঠানো হচ্ছে...';
             spinner.style.display = 'block';
             statusMessage.style.display = 'none';
 
-            // Prepare data using FormData
             const formData = new FormData(form);
 
             try {
-                // We use fetch with method POST. FormData automatically sets the right headers for Google Apps Script.
-                const response = await fetch(SCRIPT_URL, {
+                // mode: 'no-cors' যোগ করা হয়েছে যাতে গুগল ব্লক না করে
+                await fetch(SCRIPT_URL, {
                     method: 'POST',
+                    mode: 'no-cors',
                     body: formData
                 });
 
-                const result = await response.json();
-
-                if (result.result === 'success') {
-                    statusMessage.textContent = 'বার্তা সফলভাবে পাঠানো হয়েছে!';
-                    statusMessage.className = 'success';
-                    form.reset();
-                } else {
-                    throw new Error('Script returned an error');
-                }
+                // no-cors ব্যবহার করলে রেসপন্স রিড করা যায় না, তাই সরাসরি সাকসেস মেসেজ দেখিয়ে দিচ্ছি
+                statusMessage.textContent = 'বার্তা সফলভাবে পাঠানো হয়েছে!';
+                statusMessage.className = 'success';
+                statusMessage.style.display = 'block';
+                form.reset();
+                
             } catch (error) {
-                statusMessage.textContent = 'দুঃখিত, কোনো একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।';
+                statusMessage.textContent = 'দুঃখিত, কানেকশনে সমস্যা হয়েছে। আবার চেষ্টা করুন।';
                 statusMessage.className = 'error';
-                console.error('Error!', error.message);
+                statusMessage.style.display = 'block';
+                console.error('Error!', error);
             } finally {
-                // UI Update: Reset state
                 submitBtn.disabled = false;
                 btnText.textContent = 'পাঠিয়ে দিন';
                 spinner.style.display = 'none';
-                statusMessage.style.display = 'block';
+                
+                // ৫ সেকেন্ড পর মেসেজটি লুকিয়ে ফেলার জন্য
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
             }
         });
     </script>
