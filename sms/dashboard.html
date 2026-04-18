@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অ্যাডমিন ড্যাশবোর্ড - মেসেজ</title>
+    <title>অ্যাডমিন ড্যাশবোর্ড</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -18,6 +19,7 @@
             --accent-color: #3b82f6;
             --accent-hover: #2563eb;
             --success: #10b981;
+            --danger: #ef4444;
         }
 
         * {
@@ -29,12 +31,79 @@
         body {
             font-family: 'Hind Siliguri', sans-serif;
             background-color: var(--bg-color);
+            background-image: radial-gradient(circle at top right, #1e293b, transparent 40%),
+                              radial-gradient(circle at bottom left, #0f172a, transparent 40%);
             color: var(--text-primary);
             min-height: 100vh;
-            padding: 30px;
         }
 
-        .container {
+        /* --- Auth Screen (Password) --- */
+        #authScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .auth-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .auth-box h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .auth-box input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            outline: none;
+        }
+
+        .auth-box input:focus { border-color: var(--accent-color); }
+
+        .auth-box button {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .error-msg {
+            color: var(--danger);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* --- Main Dashboard --- */
+        #mainDashboard {
+            display: none; /* Hidden until unlocked */
+            padding: 30px 20px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -49,22 +118,25 @@
         }
 
         .header h1 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .controls {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             align-items: center;
         }
 
         .status-badge {
             background: rgba(16, 185, 129, 0.1);
             color: var(--success);
-            padding: 8px 15px;
+            padding: 8px 12px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -84,51 +156,37 @@
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        button {
-            padding: 10px 20px;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-family: inherit;
+        .icon-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             transition: 0.3s;
+            font-size: 1.1rem;
         }
 
-        button:hover { background: var(--accent-hover); }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
+        .icon-btn:hover { background: var(--accent-color); border-color: var(--accent-color); }
+        
+        /* Stats & Messages */
         .stat-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
+            margin-bottom: 30px;
         }
 
-        .stat-card h3 {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
+        .stat-card h3 { color: var(--text-secondary); font-size: 1rem; margin-bottom: 10px; }
+        .stat-card .number { font-size: 2.5rem; font-weight: 700; color: var(--accent-color); }
 
-        .stat-card .number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .message-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .message-list { display: flex; flex-direction: column; gap: 15px; }
 
         .message-card {
             background: var(--glass-bg);
@@ -138,10 +196,7 @@
             transition: transform 0.2s;
         }
 
-        .message-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
+        .message-card:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.2); }
 
         .message-header {
             display: flex;
@@ -153,124 +208,146 @@
             padding-bottom: 8px;
         }
 
-        .sender-name {
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
+        .sender-name { color: var(--text-primary); font-weight: 600; font-size: 1.1rem; }
+        /* Date format is English, so choosing a system font for date looks cleaner */
+        .time { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 0.85rem;}
+        
+        .message-body { line-height: 1.6; color: #e2e8f0; white-space: pre-wrap; }
+        .loading { text-align: center; padding: 40px; color: var(--text-secondary); }
 
-        .message-body {
-            line-height: 1.6;
-            color: #e2e8f0;
-            white-space: pre-wrap;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-secondary);
+        /* --- Mobile Responsive --- */
+        @media (max-width: 600px) {
+            .header { flex-direction: column; gap: 15px; align-items: flex-start; }
+            .controls { width: 100%; justify-content: space-between; }
+            .message-header { flex-direction: column; gap: 5px; }
+            .stat-card .number { font-size: 2rem; }
+            .time { font-size: 0.8rem; color: #cbd5e1; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div id="authScreen">
+        <div class="auth-box">
+            <h2><i class="fas fa-lock"></i> সিকিউর প্যানেল</h2>
+            <input type="password" id="passInput" placeholder="পাসওয়ার্ড দিন" onkeypress="handleEnter(event)">
+            <button onclick="checkPassword()">প্রবেশ করুন</button>
+            <div id="errorMsg" class="error-msg">পাসওয়ার্ড ভুল হয়েছে!</div>
+        </div>
+    </div>
+
+    <div id="mainDashboard">
         <div class="header">
-            <h1>অ্যাডমিন ড্যাশবোর্ড</h1>
+            <h1><i class="fas fa-inbox" style="color: var(--accent-color);"></i> মেসেজ বক্স</h1>
             <div class="controls">
-                <div class="status-badge">
-                    <span class="dot"></span> লাইভ আপডেট চালু
-                </div>
-                <button id="enableNotifBtn" onclick="enableNotifications()">নোটিফিকেশন ও সাউন্ড চালু করুন</button>
+                <div class="status-badge"><span class="dot"></span> Live</div>
+                <button class="icon-btn" id="enableNotifBtn" onclick="enableNotifications()" title="নোটিফিকেশন চালু করুন">
+                    <i class="fas fa-bell-slash"></i>
+                </button>
+                <button class="icon-btn" onclick="fetchMessages()" title="রিফ্রেশ করুন">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
             </div>
         </div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>সর্বমোট বার্তা</h3>
-                <div class="number" id="totalCount">০</div>
-            </div>
+        <div class="stat-card">
+            <h3>সর্বমোট বার্তা</h3>
+            <div class="number" id="totalCount">০</div>
         </div>
 
         <div class="message-list" id="messageContainer">
-            <div class="loading">বার্তা লোড হচ্ছে...</div>
+            <div class="loading"><i class="fas fa-spinner fa-spin"></i> ডাটা লোড হচ্ছে...</div>
         </div>
     </div>
 
     <script>
-        // এখানে আপনার Google Apps Script এর URL বসান
+        // --- 1. Password Protection Logic ---
+        const ADMIN_PASSWORD = "HelloBD"; // <-- এখানে আপনার পছন্দের পাসওয়ার্ডটি দিন
+
+        function handleEnter(e) {
+            if(e.key === 'Enter') checkPassword();
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('passInput').value;
+            if (input === ADMIN_PASSWORD) {
+                document.getElementById('authScreen').style.display = 'none';
+                document.getElementById('mainDashboard').style.display = 'block';
+                fetchMessages(); // আনলক হওয়ার পরই কেবল ডাটা ফেচ হবে
+                setInterval(fetchMessages, 30000); // এরপর প্রতি ৩০ সেকেন্ডে আপডেট
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+                document.getElementById('passInput').value = '';
+            }
+        }
+
+        // --- 2. Dashboard Logic ---
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZynAjWJGT0SQXS2WpiftLDmqwwJFuXTiAwXAUYexKzdBkeyVWf8l076MJP-HP2Lnt/exec'; 
         
         let previousCount = 0;
         let isFirstLoad = true;
         let notificationsEnabled = false;
 
-        // সাউন্ড তৈরি করার ফাংশন (বাইরের কোনো অডিও ফাইলের দরকার নেই)
         function playAlertSound() {
             if (!notificationsEnabled) return;
             const ctx = new (window.AudioContext || window.webkitAudioContext)();
             const osc = ctx.createOscillator();
             const gainNode = ctx.createGain();
-            
             osc.connect(gainNode);
             gainNode.connect(ctx.destination);
-            
             osc.type = 'sine';
-            osc.frequency.setValueAtTime(880, ctx.currentTime); // A5 Note
+            osc.frequency.setValueAtTime(880, ctx.currentTime);
             gainNode.gain.setValueAtTime(0.1, ctx.currentTime);
-            
             osc.start();
-            osc.stop(ctx.currentTime + 0.15); // খুব ছোট কিউট একটা বিপ সাউন্ড
+            osc.stop(ctx.currentTime + 0.15);
         }
 
-        // নোটিফিকেশন পারমিশন নেওয়া
         function enableNotifications() {
             Notification.requestPermission().then(permission => {
                 if (permission === 'granted') {
                     notificationsEnabled = true;
-                    document.getElementById('enableNotifBtn').style.display = 'none';
-                    alert("নোটিফিকেশন এবং সাউন্ড সফলভাবে চালু হয়েছে!");
+                    const btn = document.getElementById('enableNotifBtn');
+                    btn.innerHTML = '<i class="fas fa-bell"></i>';
+                    btn.style.borderColor = 'var(--success)';
+                    btn.style.color = 'var(--success)';
+                    alert("নোটিফিকেশন সফলভাবে চালু হয়েছে!");
                 }
             });
         }
 
-        // ডেক্সটপ নোটিফিকেশন দেখানোর ফাংশন
         function showDesktopNotification(sender, text) {
             if (notificationsEnabled && Notification.permission === "granted") {
-                new Notification("নতুন বার্তা এসেছে!", {
+                new Notification("নতুন বার্তা!", {
                     body: `${sender}: ${text.substring(0, 40)}...`,
-                    icon: "https://cdn-icons-png.flaticon.com/512/733/733585.png" // একটি ডামি মেসেজ আইকন
+                    icon: "https://cdn-icons-png.flaticon.com/512/733/733585.png"
                 });
             }
         }
 
-        // তারিখ ফরমেট করার ফাংশন
+        // ইংরেজি ফরমেটে তারিখ (English Format)
         function formatDate(dateString) {
-            const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit' };
-            return new Date(dateString).toLocaleDateString('bn-BD', options);
+            if(!dateString) return '';
+            const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit', hour12: true };
+            return new Date(dateString).toLocaleDateString('en-US', options);
         }
 
-        // ডাটা ফেচ করার মূল ফাংশন
         async function fetchMessages() {
             try {
                 const response = await fetch(SCRIPT_URL);
                 const data = await response.json();
                 
-                // নতুন থেকে পুরানো মেসেজ সাজানো (Reverse)
                 const reversedData = data.reverse();
                 const currentCount = reversedData.length;
 
-                // নতুন মেসেজ চেক করা
                 if (!isFirstLoad && currentCount > previousCount) {
                     const newMessagesCount = currentCount - previousCount;
                     const latestMsg = reversedData[0];
                     
                     playAlertSound();
                     showDesktopNotification(latestMsg.name, latestMsg.message);
-                    document.title = `(${newMessagesCount}) নতুন বার্তা - ড্যাশবোর্ড`;
+                    document.title = `(${newMessagesCount}) New Message`;
                 }
 
-                // ড্যাশবোর্ড আপডেট করা
                 document.getElementById('totalCount').innerText = currentCount;
                 renderMessages(reversedData);
 
@@ -278,14 +355,13 @@
                 isFirstLoad = false;
 
             } catch (error) {
-                console.error("ডাটা লোড করতে সমস্যা হচ্ছে:", error);
+                console.error("Error fetching data:", error);
             }
         }
 
-        // এইচটিএমএলে মেসেজগুলো রেন্ডার করা
         function renderMessages(messages) {
             const container = document.getElementById('messageContainer');
-            container.innerHTML = ''; // ক্লিয়ার করা
+            container.innerHTML = ''; 
 
             if(messages.length === 0) {
                 container.innerHTML = '<div class="loading">এখনো কোনো বার্তা আসেনি।</div>';
@@ -297,25 +373,18 @@
                 card.className = 'message-card';
                 card.innerHTML = `
                     <div class="message-header">
-                        <span class="sender-name">${msg.name || 'ছদ্মনাম'}</span>
-                        <span class="time">${formatDate(msg.timestamp)}</span>
+                        <span class="sender-name"><i class="far fa-user-circle"></i> ${msg.name || 'Anonymous'}</span>
+                        <span class="time"><i class="far fa-clock"></i> ${formatDate(msg.timestamp)}</span>
                     </div>
                     <div class="message-body">${msg.message}</div>
-                    <div style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">ইমেইল: ${msg.email || 'দেওয়া হয়নি'}</div>
+                    ${msg.email ? `<div style="font-size: 0.8rem; color: #64748b; margin-top: 10px;"><i class="far fa-envelope"></i> ${msg.email}</div>` : ''}
                 `;
                 container.appendChild(card);
             });
         }
 
-        // পেজ লোড হওয়ার পর প্রথমবার ডাটা আনা
-        fetchMessages();
-
-        // প্রতি ৩০ সেকেন্ড পর পর নতুন ডাটা চেক করা
-        setInterval(fetchMessages, 30000); 
-
-        // ব্রাউজার ট্যাবে গেলে টাইটেল ঠিক করে দেওয়া
         window.onfocus = function() {
-            document.title = "অ্যাডমিন ড্যাশবোর্ড - মেসেজ";
+            document.title = "অ্যাডমিন ড্যাশবোর্ড";
         };
     </script>
 </body>
