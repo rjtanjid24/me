@@ -108,6 +108,18 @@
             max-height: 500px;
             opacity: 1;
         }
+        .media-carousel-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-media 30s linear infinite;
+        }
+        .media-carousel-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-media {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
