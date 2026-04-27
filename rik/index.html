@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Rikma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050a15; 
+            color: #ffdab9; 
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Countdown Styles */
+        #countdown-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .time-blocks {
+            display: flex;
+            gap: 20px;
+            font-size: 3rem;
+            text-shadow: 0 0 15px rgba(255, 218, 185, 0.4);
+            margin-bottom: 40px;
+        }
+
+        .label {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* Swaying Plant Animation */
+        .plant-container {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .swaying-plant {
+            transform-origin: bottom center;
+            animation: sway 5s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* Reveal Styles */
+        #reveal-section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            max-width: 600px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 4s ease-in-out;
+        }
+
+        #reveal-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: normal;
+            text-shadow: 0 0 20px rgba(255, 218, 185, 0.6);
+        }
+
+        #reveal-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Utility classes */
+        .hidden {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+
+        .visible {
+            opacity: 1 !important;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="fireflies"></canvas>
+
+    <div class="container">
+        <div id="countdown-section">
+            <div class="time-blocks">
+                <div>
+                    <div id="hours">00</div>
+                    <div class="label">Hours</div>
+                </div>
+                <div>
+                    <div id="minutes">00</div>
+                    <div class="label">Mins</div>
+                </div>
+                <div>
+                    <div id="seconds">00</div>
+                    <div class="label">Secs</div>
+                </div>
+            </div>
+            
+            <div class="plant-container">
+                <svg class="swaying-plant" width="80" height="150" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,200 Q30,100 60,10" fill="none" stroke="#ffdab9" stroke-width="2" opacity="0.5"/>
+                    <path d="M45,150 Q20,130 30,110 Q45,120 45,150" fill="#ffdab9" opacity="0.4"/>
+                    <path d="M52,100 Q80,90 70,60 Q52,75 52,100" fill="#ffdab9" opacity="0.4"/>
+                    <path d="M45,50 Q15,40 25,20 Q45,35 45,50" fill="#ffdab9" opacity="0.4"/>
+                    <circle cx="60" cy="10" r="4" fill="#ffdab9" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+
+        <div id="reveal-section">
+            <h1>Happy Birthday, Rikma</h1>
+            <p>May your future bloom beautifully. Whether under the cherry blossoms of Japan, the alpine peaks of Switzerland, or wherever your roots take you. Keep finding the light in the dark.</p>
+        </div>
+    </div>
+
+    <script>
+        const targetDate = new Date("April 28, 2026 00:00:00").getTime();
+        
+        const countdownSection = document.getElementById('countdown-section');
+        const revealSection = document.getElementById('reveal-section');
+        const canvas = document.getElementById('fireflies');
+        const ctx = canvas.getContext('2d');
+
+        let isRevealed = false;
+
+        const timerInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                clearInterval(timerInterval);
+                triggerReveal();
+            } else {
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            }
+        }, 1000);
+
+        function triggerReveal() {
+            if (isRevealed) return;
+            isRevealed = true;
+            
+            countdownSection.classList.add('hidden');
+            
+            setTimeout(() => {
+                revealSection.classList.add('visible');
+                canvas.classList.add('visible');
+                initFireflies();
+            }, 1500);
+        }
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let particlesArray = [];
+        const numberOfParticles = 80;
+
+        class Firefly {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = `rgba(255, 218, 185, ${Math.random() * 0.8 + 0.2})`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.size > 0.2) this.size -= 0.01;
+                else this.size = Math.random() * 3 + 1;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#ffdab9';
+            }
+        }
+
+        function initFireflies() {
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Firefly());
+            }
+            animateFireflies();
+        }
+
+        function animateFireflies() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateFireflies);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
