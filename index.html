@@ -572,113 +572,87 @@
         </div>
     </section>
 
-<section id="social-feedback" class="py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
+<section id="social-feedback" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="container mx-auto px-6">
         
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-slate-900">সোশ্যাল মিডিয়া ফিডব্যাক</h2>
             <p class="text-slate-500 mt-2">সেশন ও কর্মশালা নিয়ে প্রশিক্ষণার্থীদের অভিমত</p>
         </div>
 
-        <!-- Event 1: ক্যাম্পাসের গল্প বুনন -->
-        <div class="flex flex-col md:flex-row gap-8 items-center mb-16">
-            <div class="md:w-1/3 w-full shrink-0 text-center md:text-left">
-                <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 mb-4 h-48 md:h-56">
-                    <img src="https://rjtanjid24.github.io/me/images/btclf_campus feature banner.jpg" alt="ফিচার বিষয়ক কর্মশালা" class="w-full h-full object-cover">
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">ক্যাম্পাসের গল্প বুনন</h3>
-                <p class="text-teal-600 text-sm font-medium mt-1">ফিচার বিষয়ক কর্মশালা</p>
-            </div>
+        <!-- 3-Column Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="md:w-2/3 w-full flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory hide-scrollbar">
-                <div class="snap-start shrink-0 w-[85vw] md:w-[350px] bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition duration-300 flex flex-col justify-between">
-                    <div class="text-teal-100 mb-4">
-                        <i class="fas fa-quote-left text-3xl"></i>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mb-6 italic text-sm">"অসাধারণ ও চমৎকার আয়োজন ছিল ভাইয়া। সত্যিই পুরো সময়টা এত সুন্দরভাবে কেটেছে যে এখনো মনে পড়লে ভালো লাগে। ছোটখাটো অনেক খুনসুটি করেছি, দুষ্টামিও কম করিনি, সব মিলিয়ে মুহূর্তগুলো ছিল ভীষণ আনন্দময়। সবচেয়ে ভালো লেগেছে, এই আয়োজনের মাধ্যমে অনেক নতুন কিছু জানার সুযোগ পেয়েছি।"</p>
-                    <div class="pt-4 border-t border-slate-100 text-right">
-                        <h4 class="font-bold text-slate-900 text-sm">Fahima Akter</h4>
-                    </div>
+            <!-- Event Column 1: ক্যাম্পাসের গল্প বুনন -->
+            <div class="flex flex-col gap-4">
+                <div class="bg-slate-200 rounded-xl overflow-hidden aspect-video border border-slate-200 flex items-center justify-center">
+                    <img src="https://rjtanjid24.github.io/me/images/btclf_campus feature banner.jpg" alt="ক্যাম্পাসের গল্প বুনন" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight">ক্যাম্পাসের গল্প বুনন</h3>
+                    <p class="text-teal-600 text-xs font-medium mt-1">ফিচার বিষয়ক কর্মশালা</p>
                 </div>
                 
-                <div class="snap-start shrink-0 w-[85vw] md:w-[350px] bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition duration-300 flex flex-col justify-between">
-                    <div class="text-teal-100 mb-4">
-                        <i class="fas fa-quote-left text-3xl"></i>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mb-6 italic text-sm">"অসাধারণ একটি আয়োজন ছিল। অসংখ্য ধন্যবাদ ও কৃতজ্ঞতা তানজিদ শুভ্র ভাই, আপনার এতটুকু মূল্যবান সময় আমাদের দেওয়ার জন্য। আশা করি পরবর্তীতে আপনার থেকে আরো নতুন কিছু শেখার সুযোগ করে দেবেন।"</p>
-                    <div class="pt-4 border-t border-slate-100 text-right">
-                        <h4 class="font-bold text-slate-900 text-sm">Sabbir Hasan Nirob</h4>
-                    </div>
+                <!-- Cards -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1 hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-2xl text-teal-100 mb-3 block"></i>
+                    <p class="text-slate-600 leading-relaxed mb-4 italic text-sm text-justify">"অসাধারণ ও চমৎকার আয়োজন ছিল ভাইয়া। সত্যিই পুরো সময়টা এত সুন্দরভাবে কেটেছে যে এখনো মনে পড়লে ভালো লাগে। ছোটখাটো অনেক খুনসুটি করেছি, দুষ্টামিও কম করিনি, সব মিলিয়ে মুহূর্তগুলো ছিল ভীষণ আনন্দময়। সবচেয়ে ভালো লেগেছে, এই আয়োজনের মাধ্যমে অনেক নতুন কিছু জানার সুযোগ পেয়েছি।"</p>
+                    <h4 class="font-bold text-slate-900 text-sm text-right border-t border-slate-50 pt-3">- Fahima Akter</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1 hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-2xl text-teal-100 mb-3 block"></i>
+                    <p class="text-slate-600 leading-relaxed mb-4 italic text-sm text-justify">"অসাধারণ একটি আয়োজন ছিল। অসংখ্য ধন্যবাদ ও কৃতজ্ঞতা তানজিদ শুভ্র ভাই, আপনার এতটুকু মূল্যবান সময় আমাদের দেওয়ার জন্য। আশা করি পরবর্তীতে আপনার থেকে আরো নতুন কিছু শেখার সুযোগ করে দেবেন।"</p>
+                    <h4 class="font-bold text-slate-900 text-sm text-right border-t border-slate-50 pt-3">- Sabbir Hasan Nirob</h4>
                 </div>
             </div>
-        </div>
 
-        <!-- Event 2: The Digital Pen -->
-        <div class="flex flex-col md:flex-row gap-8 items-center mb-16">
-            <div class="md:w-1/3 w-full shrink-0 text-center md:text-left">
-                <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 mb-4 h-48 md:h-56">
-                    <img src="https://rjtanjid24.github.io/me/images/The Digital Pen-00.jpg" alt="The Digital Pen" class="w-full h-full object-cover">
+            <!-- Event Column 2: The Digital Pen -->
+            <div class="flex flex-col gap-4">
+                <div class="bg-slate-200 rounded-xl overflow-hidden aspect-video border border-slate-200 flex items-center justify-center">
+                    <img src="https://rjtanjid24.github.io/me/images/The Digital Pen-00.jpg" alt="The Digital Pen" class="w-full h-full object-contain">
                 </div>
-                <h3 class="text-xl font-bold text-slate-900">The Digital Pen</h3>
-                <p class="text-teal-600 text-sm font-medium mt-1">নিত্য প্রয়োজনীয় সফট স্কিল বিষয়ক সেশন</p>
-            </div>
-            
-            <div class="md:w-2/3 w-full flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory hide-scrollbar">
-                <div class="snap-start shrink-0 w-[85vw] md:w-[350px] bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition duration-300 flex flex-col justify-between">
-                    <div class="text-teal-100 mb-4">
-                        <i class="fas fa-quote-left text-3xl"></i>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mb-6 italic text-sm">"ধন্যবাদ ভাইয়া, অজানায় ছিলো, অজান্তেই রয়ে যেত, যদি এমন খুঁটিনাটি দেখিয়ে বা জানিয়ে না দেওয়া হতো। নতুন কিছু শিখলাম, অনন্য এক কর্মশালা পেলাম।"</p>
-                    <div class="pt-4 border-t border-slate-100 text-right">
-                        <h4 class="font-bold text-slate-900 text-sm">Umme Salma Toha</h4>
-                    </div>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight">The Digital Pen</h3>
+                    <p class="text-teal-600 text-xs font-medium mt-1">মোবাইল স্কিল ডেভেলপমেন্ট সেশন</p>
                 </div>
                 
-                <div class="snap-start shrink-0 w-[85vw] md:w-[350px] bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition duration-300 flex flex-col justify-between">
-                    <div class="text-teal-100 mb-4">
-                        <i class="fas fa-quote-left text-3xl"></i>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mb-6 italic text-sm">"তানজিদ শুভ্র ভাইকে অসংখ্য ধন্যবাদ জানাই এত সুন্দর ও ফলপ্রসূ একটি কর্মশালা আয়োজনের জন্য। কম্পিউটারের নানা কাজ যে মোবাইল ফোন দিয়েও এত সহজে করা যায় এই বিষয়টি আমার কাছে নতুন ছিল। আজকের এই আয়োজনের মাধ্যমে অনেক অজানা তথ্য জানতে ও শিখতে পেরেছি।"</p>
-                    <div class="pt-4 border-t border-slate-100 text-right">
-                        <h4 class="font-bold text-slate-900 text-sm">Tanvir Ahmad</h4>
-                    </div>
+                <!-- Cards -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1 hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-2xl text-teal-100 mb-3 block"></i>
+                    <p class="text-slate-600 leading-relaxed mb-4 italic text-sm text-justify">"ধন্যবাদ Tanzid Il ভাইয়া, অজানায় ছিলো, অজান্তেই রয়ে যেত, যদি এমন খুঁটিনাটি দেখিয়ে বা জানিয়ে না দেওয়া হতো। নতুন কিছু শিখলাম, অনন্য এক কর্মশালা পেলাম।"</p>
+                    <h4 class="font-bold text-slate-900 text-sm text-right border-t border-slate-50 pt-3">- Umme Salma Toha</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1 hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-2xl text-teal-100 mb-3 block"></i>
+                    <p class="text-slate-600 leading-relaxed mb-4 italic text-sm text-justify">"তানজিদ শুভ্র ভাইকে অসংখ্য ধন্যবাদ জানাই এত সুন্দর ও ফলপ্রসূ একটি কর্মশালা আয়োজনের জন্য। কম্পিউটারের নানা কাজ যে মোবাইল ফোন দিয়েও এত সহজে করা যায় এই বিষয়টি আমার কাছে নতুন ছিল। আজকের এই আয়োজনের মাধ্যমে অনেক অজানা তথ্য জানতে ও শিখতে পেরেছি।"</p>
+                    <h4 class="font-bold text-slate-900 text-sm text-right border-t border-slate-50 pt-3">- Tanvir Ahmad</h4>
                 </div>
             </div>
-        </div>
 
-        <!-- Event 3: অন্যান্য সেশন -->
-        <div class="flex flex-col md:flex-row gap-8 items-center">
-            <div class="md:w-1/3 w-full shrink-0 text-center md:text-left">
-                <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 mb-4 h-48 md:h-56">
-                    <img src="https://rjtanjid24.github.io/me/images/eden feature 26.jpg" alt="অন্যান্য সেশন" class="w-full h-full object-cover">
+            <!-- Event Column 3: অন্যান্য সেশন -->
+            <div class="flex flex-col gap-4">
+                <div class="bg-slate-200 rounded-xl overflow-hidden aspect-video border border-slate-200 flex items-center justify-center">
+                    <img src="https://rjtanjid24.github.io/me/images/eden feature 26.jpg" alt="লিডারশিপ ও স্কিল সেশন" class="w-full h-full object-contain">
                 </div>
-                <h3 class="text-xl font-bold text-slate-900">লিচার বিষয়ক কর্মশালা</h3>
-                <p class="text-teal-600 text-sm font-medium mt-1">আয়োজনে- ইডেন মহিলা কলেজ</p>
-            </div>
-            
-            <div class="md:w-2/3 w-full flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory hide-scrollbar">
-                <div class="snap-start shrink-0 w-[85vw] md:w-[350px] bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition duration-300 flex flex-col justify-between">
-                    <div class="text-teal-100 mb-4">
-                        <i class="fas fa-quote-left text-3xl"></i>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mb-6 italic text-sm">"কীভাবে সম্পূর্ণ সময়জুড়ে সদস্যদের সজাগ রাখতে হয় তা শেখার জন্য হলেও আপনার সেশন করা প্রয়োজন আছে। সারবস্তু বলতে গেলে বলতে হয়, লিখতে হলে পড়তে হবে পূনরায় রিমাইন্ডার নিলাম।"</p>
-                    <div class="pt-4 border-t border-slate-100 text-right">
-                        <h4 class="font-bold text-slate-900 text-sm">Tayaba Khanam</h4>
-                    </div>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 leading-tight">লিডারশিপ ও স্কিল সেশন</h3>
+                    <p class="text-teal-600 text-xs font-medium mt-1">অন্যান্য আয়োজন</p>
                 </div>
                 
-                <div class="snap-start shrink-0 w-[85vw] md:w-[350px] bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition duration-300 flex flex-col justify-between">
-                    <div class="text-teal-100 mb-4">
-                        <i class="fas fa-quote-left text-3xl"></i>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mb-6 italic text-sm">"ভাই, আপনাকে আন্তরিক ধন্যবাদ জানাই আমাদের মাঝে উপস্থিত থেকে এত সুন্দর ও সমৃদ্ধ একটি সেশন উপহার দেওয়ার জন্য। আমাদের এই আয়োজনে এসে যেভাবে আপনি আপনার অভিজ্ঞতা ও জ্ঞান ভাগ করে নিয়েছেন, তা আমাদের জন্য নিঃসন্দেহে অনুপ্রেরণার।"</p>
-                    <div class="pt-4 border-t border-slate-100 text-right">
-                        <h4 class="font-bold text-slate-900 text-sm">Progga Das</h4>
-                    </div>
+                <!-- Cards -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1 hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-2xl text-teal-100 mb-3 block"></i>
+                    <p class="text-slate-600 leading-relaxed mb-4 italic text-sm text-justify">"কীভাবে সম্পূর্ণ সময়জুড়ে সদস্যদের সজাগ রাখতে হয় তা শেখার জন্য হলেও আপনার সেশন করা প্রয়োজন আছে। সারবস্তু বলতে গেলে বলতে হয়, লিখতে হলে পড়তে হবে পূনরায় রিমাইন্ডার নিলাম।"</p>
+                    <h4 class="font-bold text-slate-900 text-sm text-right border-t border-slate-50 pt-3">- Tayaba Khanam</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1 hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-2xl text-teal-100 mb-3 block"></i>
+                    <p class="text-slate-600 leading-relaxed mb-4 italic text-sm text-justify">"ভাই, আপনাকে আন্তরিক ধন্যবাদ জানাই আমাদের মাঝে উপস্থিত থেকে এত সুন্দর ও সমৃদ্ধ একটি সেশন উপহার দেওয়ার জন্য। আমাদের এই আয়োজনে এসে যেভাবে আপনি আপনার অভিজ্ঞতা ও জ্ঞান ভাগ করে নিয়েছেন, তা আমাদের জন্য নিঃসন্দেহে অনুপ্রেরণার।"</p>
+                    <h4 class="font-bold text-slate-900 text-sm text-right border-t border-slate-50 pt-3">- Progga Das</h4>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </section>
     
