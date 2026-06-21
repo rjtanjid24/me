@@ -235,7 +235,6 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        /* Hidden field transition */
         #customTeamGroup {
             display: none;
             animation: fadeIn 0.3s ease;
@@ -348,7 +347,6 @@
 
         #feedback.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
-        /* Status and Footer */
         #saving-status {
             font-size: 0.95rem;
             margin-top: 15px;
@@ -361,7 +359,7 @@
             text-align: center;
             font-size: 0.8rem;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .footer a {
@@ -369,17 +367,13 @@
             text-decoration: none;
             font-weight: 700;
         }
-        
-        .footer .title {
-            color: var(--primary);
-            font-weight: 600;
-        }
     </style>
 </head>
 <body>
 
     <div id="app-container">
         
+        <!-- Registration Screen -->
         <div id="entry-screen" class="screen slide-in">
             <div class="brand-logo">
                 <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Zm-1-4.93v-6.14l5.31 3.07Z"/></svg>
@@ -425,11 +419,13 @@
                 <button class="btn" id="start-btn" onclick="initiateGame()" disabled>Enter Pitch</button>
             </div>
             
-            <div class="footer" style="margin-top: 30px;">
-    Developed by <a href="http://tanjidshuvro.pro.bd/" target="_blank">Tanjid Shuvro</a><br>
-    Let's connect on <a href="https://web.facebook.com/tanjid.ahamed.779" target="_blank">Facebook</a>
-</div>
+            <div class="footer">
+                Developed by <a href="http://tanjidshuvro.pro.bd/" target="_blank">Tanjid Shuvro</a><br>
+                Let's connect on <a href="https://web.facebook.com/tanjid.ahamed.779" target="_blank">Facebook</a>
+            </div>
+        </div>
 
+        <!-- Game Interface -->
         <div id="game-screen" class="screen slide-out">
             <div id="hud">
                 <div class="hud-badge">
@@ -445,6 +441,7 @@
             <canvas id="gameCanvas" width="500" height="800"></canvas>
         </div>
 
+        <!-- Game Over Screen -->
         <div id="result-screen" class="screen slide-out">
             <div class="brand-logo" style="background: var(--success); box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);">
                 <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
@@ -456,9 +453,9 @@
             <button class="btn" onclick="resetApp()" style="margin-top: 20px;">Play Again</button>
 
             <div class="footer" style="margin-top: 30px;">
-    Developed by <a href="http://tanjidshuvro.pro.bd/" target="_blank">Tanjid Shuvro</a><br>
-    Let's connect on <a href="https://web.facebook.com/tanjid.ahamed.779" target="_blank">Facebook</a>
-</div>
+                Developed by <a href="http://tanjidshuvro.pro.bd/" target="_blank">Tanjid Shuvro</a><br>
+                Let's connect on <a href="https://web.facebook.com/tanjid.ahamed.779" target="_blank">Facebook</a>
+            </div>
         </div>
 
     </div>
@@ -467,8 +464,8 @@
         // --- CONFIGURATION ---
         const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgYoUB9jxL30JFn4L7HizxjWSe_EDhkhQfNqOmV_Q-52C1bs5-wZkU5v8ECUdM8qYr8A/exec';
 
-        // High Quality SVG Assets (Data URIs for self-containment)
-        const svgBallSrc = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="250" fill="%23fff" stroke="%23334155" stroke-width="12"/><path d="M256 120 l55 170 h-110 z" fill="%230f172a"/><path d="M120 256 l80 -100 l-20 -50 z" fill="%230f172a"/><path d="M392 256 l-80 -100 l20 -50 z" fill="%230f172a"/><path d="M150 420 l80 -60 h-100 z" fill="%230f172a"/><path d="M362 420 l-80 -60 h100 z" fill="%230f172a"/><path d="M256 120 L256 0 M201 290 L120 256 M311 290 L392 256 M150 420 L200 480 M362 420 L312 480" stroke="%23334155" stroke-width="10"/></svg>`;
+        // URL Encoded SVG to completely prevent mobile browser parsing errors
+        const svgBallSrc = "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22250%22%20fill%3D%22%23fff%22%20stroke%3D%22%23334155%22%20stroke-width%3D%2212%22%2F%3E%3Cpath%20d%3D%22M256%20120%20l55%20170%20h-110%20z%22%20fill%3D%22%230f172a%22%2F%3E%3Cpath%20d%3D%22M120%20256%20l80%20-100%20l-20%20-50%20z%22%20fill%3D%22%230f172a%22%2F%3E%3Cpath%20d%3D%22M392%20256%20l-80%20-100%20l20%20-50%20z%22%20fill%3D%22%230f172a%22%2F%3E%3Cpath%20d%3D%22M150%20420%20l80%20-60%20h-100%20z%22%20fill%3D%22%230f172a%22%2F%3E%3Cpath%20d%3D%22M362%20420%20l-80%20-60%20h100%20z%22%20fill%3D%22%230f172a%22%2F%3E%3Cpath%20d%3D%22M256%20120%20L256%200%20M201%20290%20L120%20256%20M311%20290%20L392%20256%20M150%20420%20L200%20480%20M362%20420%20L312%20480%22%20stroke%3D%22%23334155%22%20stroke-width%3D%2210%22%2F%3E%3C%2Fsvg%3E";
         const ballImage = new Image();
         ballImage.src = svgBallSrc;
 
@@ -546,12 +543,14 @@
             currentShot = 0;
             shotHistory = [];
             
-            // Fix: Just showing the Player Name in the top badge as requested
             document.getElementById('player-badge').innerText = currentUser.name;
             updateHUD();
 
-            entryScreen.classList.replace('slide-in', 'slide-out');
-            gameScreen.classList.replace('slide-out', 'slide-in');
+            // Using safer class replacements for older mobile browsers
+            entryScreen.classList.remove('slide-in');
+            entryScreen.classList.add('slide-out');
+            gameScreen.classList.remove('slide-out');
+            gameScreen.classList.add('slide-in');
             
             gameState = 'aiming';
             resetPositions();
@@ -560,8 +559,10 @@
 
         function finishGame() {
             gameState = 'menu';
-            gameScreen.classList.replace('slide-in', 'slide-out');
-            resultScreen.classList.replace('slide-out', 'slide-in');
+            gameScreen.classList.remove('slide-in');
+            gameScreen.classList.add('slide-out');
+            resultScreen.classList.remove('slide-out');
+            resultScreen.classList.add('slide-in');
             
             document.getElementById('result-title').innerText = currentUser.score >= 3 ? "🏆 Victory! 🏆" : "Defeat!";
             document.getElementById('result-msg').innerText = `${currentUser.name}, you scored ${currentUser.score} out of 5!`;
@@ -570,8 +571,10 @@
         }
 
         function resetApp() {
-            resultScreen.classList.replace('slide-in', 'slide-out');
-            entryScreen.classList.replace('slide-out', 'slide-in');
+            resultScreen.classList.remove('slide-in');
+            resultScreen.classList.add('slide-out');
+            entryScreen.classList.remove('slide-out');
+            entryScreen.classList.add('slide-in');
         }
 
         // Database Integration
@@ -709,27 +712,22 @@
 
         // Graphics Rendering
         function drawPitch() {
-            // Gradient Grass
             for (let i = 0; i < 8; i++) {
                 ctx.fillStyle = i % 2 === 0 ? '#16a34a' : '#15803d';
                 ctx.fillRect(0, 100 + (i * 100), canvas.width, 100);
             }
             
-            // Box lines
             ctx.strokeStyle = 'rgba(255,255,255,0.4)';
             ctx.lineWidth = 5;
             ctx.strokeRect(-50, 360, 600, 500);
             
-            // Penalty Arc
             ctx.beginPath();
             ctx.arc(250, 360, 100, 0, Math.PI, false);
             ctx.stroke();
 
-            // Penalty Spot
             ctx.fillStyle = 'rgba(255,255,255,0.8)';
             ctx.beginPath(); ctx.arc(ball.startX, ball.startY + 15, 6, 0, Math.PI * 2); ctx.fill();
 
-            // Goal Net Pattern
             ctx.fillStyle = 'rgba(255,255,255,0.1)';
             ctx.fillRect(goal.x, goal.y, goal.width, goal.height);
             
@@ -742,7 +740,6 @@
                 ctx.beginPath(); ctx.moveTo(goal.x, y); ctx.lineTo(goal.x + goal.width, y); ctx.stroke();
             }
 
-            // Goal Frame
             ctx.strokeStyle = '#ffffff';
             ctx.lineWidth = goal.postsWidth;
             ctx.lineCap = 'square';
@@ -784,14 +781,15 @@
             ctx.fillStyle = skinColor;
             ctx.beginPath(); ctx.arc(0, -35, 14, 0, Math.PI * 2); ctx.fill();
             
+            // Replaced roundRect with standard rect to prevent mobile crashes
             ctx.fillStyle = jerseyColor;
             ctx.beginPath();
-            ctx.roundRect(-22, -18, 44, 45, 8);
+            ctx.rect(-22, -18, 44, 45);
             ctx.fill();
 
             ctx.fillStyle = shortsColor;
             ctx.beginPath();
-            ctx.roundRect(-20, 25, 40, 20, 4);
+            ctx.rect(-20, 25, 40, 20);
             ctx.fill();
 
             ctx.strokeStyle = skinColor;
@@ -831,7 +829,7 @@
             ctx.fillStyle = 'rgba(0,0,0,0.3)';
             ctx.beginPath(); ctx.ellipse(0, 15, ball.radius, ball.radius * 0.4, 0, 0, Math.PI * 2); ctx.fill();
 
-            if (ballImage.complete) {
+            if (ballImage.complete && ballImage.naturalWidth !== 0) {
                 ctx.drawImage(ballImage, -ball.radius, -ball.radius, ball.radius * 2, ball.radius * 2);
             } else {
                 ctx.fillStyle = '#ffffff';
