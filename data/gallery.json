@@ -1,8 +1,44 @@
 {
   "photos": [
     {
-      "src": "assets/images/ta_cm.jpg",
-      "title": "ক্যারিয়ার মিটআপ ঢাকা",
+      "src": "assets/images/tanjid_national assembly.jpg",
+      "title": "জাতীয় সংসদ ভবন পরিদর্শন",
+      "category": "অন্যান্য",
+      "featured": true
+    },
+        {
+      "src": "assets/images/tanjid_scondronath.jpg",
+      "title": "চন্দ্রনাথ পাহাড়",
+      "category": "সংগঠন",
+      "featured": true
+    },
+{
+      "src": "assets/images/tanjid_bjc_26.jpg",
+      "title": "বাংলাদেশ সাংবাদিক সম্মেলন ২০২৬",
+      "category": "সংগঠন",
+      "featured": true
+    },
+{
+      "src": "assets/images/tanjid_julian_bjc.jpg",
+      "title": "বাংলাদেশ সাংবাদিক সম্মেলন ২০২৬",
+      "category": "সংগঠন",
+      "featured": true
+    },
+{
+      "src": "assets/images/tanjid_mohima_bjc.jpg",
+      "title": "বাংলাদেশ সাংবাদিক সম্মেলন ২০২৬",
+      "category": "সংগঠন",
+      "featured": true
+    },
+        {
+      "src": "assets/images/tanjid_ta_dinajpur.jpg",
+      "title": "ক্যারিয়ার মিটআপ দিনাজপুর",
+      "category": "ক্যারিয়ার",
+      "featured": true
+    },
+        {
+      "src": "assets/images/tanjid_bdjobs gazipur.jpg",
+      "title": "জব ফেয়ার, গাজীপুর",
       "category": "ক্যারিয়ার",
       "featured": true
     },
@@ -10,6 +46,18 @@
       "src": "https://rjtanjid24.github.io/me/images/ta_cm.jpg",
       "title": "ক্যারিয়ার মিটআপ ঢাকা",
       "category": "ক্যারিয়ার",
+      "featured": true
+    },
+    {
+      "src": "assets/images/tanjid_bbagc_2.jpg",
+      "title": "অধ্যক্ষ মহোদয়ের সঙ্গে সাক্ষাৎ",
+      "category": "সংগঠন",
+      "featured": true
+    },
+        {
+      "src": "assets/images/tanjid_bbagc_1.jpg",
+      "title": "গ্রুপ প্রেজেন্টেশন",
+      "category": "সংগঠন",
       "featured": true
     },
     {
