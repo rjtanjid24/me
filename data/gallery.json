@@ -1,16 +1,6 @@
 {
   "photos": [
     {
-      "src": "assets/images/gallery/btclf_gstu.jpg",
-      "title": "কেন লিখব, কী লিখব, কীভাবে লিখব?",
-      "title_en": "Why Write, What to Write, How to Write?",
-      "category": "কর্মশালা",
-      "category_en": "Workshops",
-      "date": "২৯ অক্টোবর ২০২৬",
-      "date_en": "October 29, 2026",
-      "featured": true
-    },
-    {
       "src": "assets/images/gallery/tanjid_national%20assembly.jpg",
       "title": "জাতীয় সংসদ ভবন পরিদর্শন",
       "title_en": "Visit to the National Parliament House",
