@@ -1,6 +1,24 @@
-# Tanjid Shuvro Portfolio
+# Tanjid Shuvro | Portfolio
 
-Static site for GitHub Pages with a custom domain. No build step.
+Bilingual portfolio website of Tanjid Shuvro, a feature writer, journalist and
+certified trainer from Bangladesh.
+
+- Live (Bengali): https://tanjidshuvro.com
+- Live (English): https://tanjidshuvro.com/en/
+
+Built with plain HTML, CSS and JavaScript. No framework, no build step.
+Hosted on GitHub Pages with a custom domain.
+
+## Features
+- Bengali and English pages sharing one stylesheet and one script
+- Author profile links for national dailies and portals
+- Photo gallery driven by `data/gallery.json` (slider, category filters, lightbox)
+- Auto-updating workshop status badge (upcoming, today, completed)
+- Custom 404 page, sitemap, robots.txt and structured data
+
+## License
+All rights reserved. Content, photos and branding belong to Tanjid Shuvro.
+The code structure may be used as a reference with credit.
 
 ## Structure
 
