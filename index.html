@@ -516,24 +516,21 @@
                 <a class="link-item" href="https://web.facebook.com/groups/RJTanjid24" target="_blank" rel="noopener"><i class="fa-solid fa-users c-fb" aria-hidden="true"></i> Facebook Group</a>
             </div>
 
-            <div class="contact-actions flex flex-col gap-3 mt-4">
-    <!-- Email Button -->
-    <a class="ca-mail bg-rose-500 text-white px-5 py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-rose-600 transition shadow-sm" href="mailto:hello@tanjidshuvro.pro.bd">
-        <i class="fa-solid fa-envelope" aria-hidden="true"></i> hello@tanjidshuvro.pro.bd
-    </a>
+            <div class="contact-actions" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center;">
     
-    <!-- One Line Container for Anonymous & SMS -->
-    <div class="flex flex-row gap-3">
-        <!-- Anonymous Message Button (Purple) -->
-        <a class="ca-anon bg-purple-500 text-white px-4 py-3 rounded-xl flex-1 flex items-center justify-center gap-2 hover:bg-purple-600 transition text-sm font-medium shadow-sm" href="https://chithi.me/tanjids" target="_blank" rel="noopener">
-            <i class="fa-solid fa-user-secret" aria-hidden="true"></i> Anonymous Msg
-        </a>
-        
-        <!-- SMS Button (Teal/Green) -->
-        <a class="ca-sms bg-teal-500 text-white px-4 py-3 rounded-xl flex-1 flex items-center justify-center gap-2 hover:bg-teal-600 transition text-sm font-medium shadow-sm" href="https://tanjidshuvro.pro.bd/sms" target="_blank" rel="noopener">
-            <i class="fa-solid fa-comment-sms" aria-hidden="true"></i> Send SMS
-        </a>
+    <!-- ইমেইল এবং কপি বাটন -->
+    <div style="display: flex; align-items: center; gap: 5px;">
+        <a class="ca-mail" href="mailto:hello@tanjidshuvro.pro.bd"><i class="fa-solid fa-envelope" aria-hidden="true"></i> hello@tanjidshuvro.pro.bd</a>
+        <button class="ca-mail" onclick="navigator.clipboard.writeText('hello@tanjidshuvro.pro.bd'); alert('ইমেইল কপি হয়েছে!');" title="Copy Email" style="border: none; cursor: pointer; background: transparent;"><i class="fa-solid fa-copy" aria-hidden="true"></i></button>
     </div>
+
+    <!-- এনোনিমাস মেসেজ লিংক ১ -->
+    <a class="ca-anon" href="https://chithi.me/tanjids" target="_blank" rel="noopener"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Chithi.me</a>
+
+    <!-- এনোনিমাস মেসেজ লিংক ২ -->
+    <a class="ca-anon" href="https://tanjidshuvro.pro.bd/sms" target="_blank" rel="noopener"><i class="fa-solid fa-message" aria-hidden="true"></i> Web SMS</a>
+
+</div>
 </div>
         </div>
     </dialog>
