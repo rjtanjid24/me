@@ -516,20 +516,11 @@
                 <a class="link-item" href="https://web.facebook.com/groups/RJTanjid24" target="_blank" rel="noopener"><i class="fa-solid fa-users c-fb" aria-hidden="true"></i> Facebook Group</a>
             </div>
 
-            <div class="contact-actions" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center;">
-    
-    <!-- ইমেইল এবং কপি বাটন -->
-    <div style="display: flex; align-items: center; gap: 5px;">
-        <a class="ca-mail" href="mailto:hello@tanjidshuvro.pro.bd"><i class="fa-solid fa-envelope" aria-hidden="true"></i> hello@tanjidshuvro.pro.bd</a>
-        <button class="ca-mail" onclick="navigator.clipboard.writeText('hello@tanjidshuvro.pro.bd'); alert('ইমেইল কপি হয়েছে!');" title="Copy Email" style="border: none; cursor: pointer; background: transparent;"><i class="fa-solid fa-copy" aria-hidden="true"></i></button>
-    </div>
-
-    <!-- এনোনিমাস মেসেজ লিংক ১ -->
-    <a class="ca-anon" href="https://chithi.me/tanjids" target="_blank" rel="noopener"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Chithi.me</a>
-
-    <!-- এনোনিমাস মেসেজ লিংক ২ -->
-    <a class="ca-anon" href="https://tanjidshuvro.pro.bd/sms" target="_blank" rel="noopener"><i class="fa-solid fa-message" aria-hidden="true"></i> Web SMS</a>
-
+            <div class="link-grid" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
+    <a class="link-item" href="mailto:hello@tanjidshuvro.pro.bd"><i class="fa-solid fa-envelope c-ad" aria-hidden="true"></i> Email</a>
+    <button type="button" class="link-item" aria-label="Copy email address" onclick="navigator.clipboard.writeText('hello@tanjidshuvro.pro.bd').then(function(){var s=this.querySelector('span');s.textContent='Copied!';setTimeout(function(){s.textContent='Copy'},1500)}.bind(this))"><i class="fa-regular fa-copy c-gh" aria-hidden="true"></i> <span>Copy</span></button>
+    <a class="link-item" href="https://chithi.me/tanjids" target="_blank" rel="noopener"><i class="fa-solid fa-paper-plane c-in" aria-hidden="true"></i> Anonymous</a>
+    <a class="link-item" href="https://tanjidshuvro.pro.bd/sms" target="_blank" rel="noopener"><i class="fa-solid fa-comment-sms c-be" aria-hidden="true"></i> SMS</a>
 </div>
 </div>
         </div>
