@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পেজটি পাওয়া যায়নি | তানজিদ শুভ্র</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Absolute paths on purpose: this page is served for any missing URL, at any depth -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <main class="nf">
+        <div class="nf-box">
+            <div class="code" aria-hidden="true">৪০৪</div>
+            <h1>এই পেজটি খুঁজে পাওয়া যাচ্ছে না</h1>
+            <p>লিংকটি ভুল হতে পারে, অথবা পেজটি সরিয়ে নেওয়া হয়েছে।</p>
+            <code id="nfPath" hidden></code>
+
+            <div class="nf-actions">
+                <a class="btn btn-primary" href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> হোমে ফিরে যান</a>
+                <button type="button" class="btn btn-ghost" id="nfBack"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> আগের পেজে</button>
+            </div>
+
+            <nav class="nf-links" aria-label="দ্রুত লিংক">
+                <a href="/#about">গল্প</a>
+                <a href="/#publications">প্রকাশনা</a>
+                <a href="/#projects">ওয়েব গেম</a>
+                <a href="/#workshops">কর্মশালা</a>
+                <a href="/#gallery">ছবিঘর</a>
+                <a href="mailto:tanjid@jagobulletin.com">যোগাযোগ</a>
+            </nav>
+        </div>
+    </main>
+    <script>
+        (function () {
+            var p = document.getElementById('nfPath');
+            if (p && location.pathname && location.pathname !== '/') { p.textContent = location.pathname; p.hidden = false; }
+            document.getElementById('nfBack').addEventListener('click', function () {
+                if (history.length > 1) history.back(); else location.href = '/';
+            });
+        })();
+    </script>
+</body>
+</html>

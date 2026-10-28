@@ -1,0 +1,58 @@
+{
+  "photos": [
+    {
+      "src": "https://rjtanjid24.github.io/me/images/ta_cm.jpg",
+      "title": "ক্যারিয়ার মিটআপ ঢাকা",
+      "category": "ক্যারিয়ার",
+      "featured": true
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/assessment.jpg",
+      "title": "অ্যাসেসমেন্ট সেশন",
+      "category": "অ্যাসেসমেন্ট",
+      "featured": true
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/IMG_20260212_234025.jpg",
+      "title": "একটি আয়োজনের মুহূর্ত",
+      "category": "কর্মশালা",
+      "featured": true
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/btclf.jpg",
+      "title": "বাংলাদেশ তরুণ কলাম লেখক ফোরাম",
+      "category": "সংগঠন",
+      "featured": true
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/btclf_campus%20feature%20banner.jpg",
+      "title": "ক্যাম্পাসের গল্প বুনন",
+      "category": "কর্মশালা"
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/The%20Digital%20Pen-00.jpg",
+      "title": "The Digital Pen",
+      "category": "কর্মশালা"
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/eden%20feature%2026.jpg",
+      "title": "ইডেন মহিলা কলেজে ফিচার কর্মশালা",
+      "category": "কর্মশালা"
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/mpi.jpg",
+      "title": "তারুণ্যের উৎসব ২০২৫",
+      "category": "সম্মাননা"
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/srw.jpg",
+      "title": "শাহীনা রব স্মৃতি পদক",
+      "category": "সম্মাননা"
+    },
+    {
+      "src": "https://rjtanjid24.github.io/me/images/btclf-a.jpg",
+      "title": "বর্ষসেরা ফিচার লেখক",
+      "category": "সম্মাননা"
+    }
+  ]
+}
