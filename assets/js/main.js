@@ -8,6 +8,22 @@
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
+  /* ---------- Language (bn is default, en for /en/) ---------- */
+  var isEn = (document.documentElement.lang || 'bn').slice(0, 2) === 'en';
+  var STR = isEn ? {
+    menuOpen: 'Open menu', menuClose: 'Close menu',
+    upcoming: 'Upcoming', tomorrow: 'Tomorrow', today: 'Today', done: 'Completed',
+    showAll: 'View all photos', hide: 'Hide photos', all: 'All',
+    empty: 'No photos in this category yet.', viewLarger: ' (view larger)', photo: 'Photo'
+  } : {
+    menuOpen: 'মেনু খুলুন', menuClose: 'মেনু বন্ধ করুন',
+    upcoming: 'আসন্ন', tomorrow: 'আগামীকাল', today: 'আজ', done: 'সম্পন্ন',
+    showAll: 'সব ছবি দেখুন', hide: 'ছবি লুকান', all: 'সব',
+    empty: 'এই বিভাগে এখনো কোনো ছবি নেই।', viewLarger: ' বড় করে দেখুন', photo: 'ছবি'
+  };
+  /* Pick the English field (title_en, category_en, date_en) on the English page, else the Bengali one */
+  function field(p, name) { return (isEn && p[name + '_en']) || p[name] || ''; }
+
   /* ---------- Navigation ---------- */
   var nav = $('#nav');
   var toTop = $('#toTop');
@@ -25,7 +41,7 @@
   function setMenu(open) {
     mobileMenu.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'মেনু বন্ধ করুন' : 'মেনু খুলুন');
+    menuBtn.setAttribute('aria-label', open ? STR.menuClose : STR.menuOpen);
   }
   menuBtn.addEventListener('click', function () { setMenu(!mobileMenu.classList.contains('open')); });
   $$('a', mobileMenu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
@@ -56,7 +72,7 @@
   /* ---------- Year (Bengali digits) ---------- */
   var yearEl = $('#year');
   if (yearEl) {
-    try { yearEl.textContent = new Intl.NumberFormat('bn-BD', { useGrouping: false }).format(new Date().getFullYear()); } catch (e) { /* keep default */ }
+    try { yearEl.textContent = new Intl.NumberFormat(isEn ? 'en' : 'bn-BD', { useGrouping: false }).format(new Date().getFullYear()); } catch (e) { /* keep default */ }
   }
 
   /* ---------- Event status (upcoming / today / done) ---------- */
@@ -67,10 +83,10 @@
     var badge = $('.event-status', el);
     if (!badge) return;
     badge.classList.remove('done');
-    if (diff > 1) badge.textContent = 'আসন্ন';
-    else if (diff === 1) badge.textContent = 'আগামীকাল';
-    else if (diff === 0) badge.textContent = 'আজ';
-    else { badge.textContent = 'সম্পন্ন'; badge.classList.add('done'); }
+    if (diff > 1) badge.textContent = STR.upcoming;
+    else if (diff === 1) badge.textContent = STR.tomorrow;
+    else if (diff === 0) badge.textContent = STR.today;
+    else { badge.textContent = STR.done; badge.classList.add('done'); }
   });
 
   /* ---------- Author logos: text fallback if an image fails ---------- */
@@ -97,21 +113,29 @@
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
 
   /* ---------- Gallery ---------- */
-  var DATA_URL = 'data/gallery.json';
+  /* Root-relative on the English page (served from /en/), relative on the Bengali page */
+  var DATA_URL = document.body.getAttribute('data-gallery') || 'data/gallery.json';
   var PAGE_SIZE = 12;
-  var FEATURED_LIMIT = 8;
+  var FEATURED_LIMIT = 12;
+
+  /* Local paths such as assets/images/gallery/x.jpg are resolved from the site root,
+     so they work on both the Bengali page (/) and the English page (/en/) */
+  function assetUrl(u) {
+    if (!u) return u;
+    return /^(https?:)?\/\//.test(u) || u.charAt(0) === '/' ? u : '/' + u;
+  }
   var BASE = 'https://rjtanjid24.github.io/me/images/';
 
   /* Used only if data/gallery.json cannot be loaded (for example when opened from file://) */
   var FALLBACK = [
-    { src: BASE + 'ta_cm.jpg', title: 'ক্যারিয়ার মিটআপ ঢাকা', category: 'ক্যারিয়ার', featured: true },
-    { src: BASE + 'assessment.jpg', title: 'অ্যাসেসমেন্ট সেশন', category: 'অ্যাসেসমেন্ট', featured: true },
-    { src: BASE + 'btclf.jpg', title: 'বাংলাদেশ তরুণ কলাম লেখক ফোরাম', category: 'সংগঠন', featured: true }
+    { src: BASE + 'ta_cm.jpg', title: 'ক্যারিয়ার মিটআপ ঢাকা', title_en: 'Career MeetUp Dhaka', category: 'ক্যারিয়ার', category_en: 'Career', featured: true },
+    { src: BASE + 'assessment.jpg', title: 'অ্যাসেসমেন্ট সেশন', title_en: 'Assessment session', category: 'অ্যাসেসমেন্ট', category_en: 'Assessment', featured: true },
+    { src: BASE + 'btclf.jpg', title: 'বাংলাদেশ তরুণ কলাম লেখক ফোরাম', title_en: 'Bangladesh Young Column Writers Forum', category: 'সংগঠন', category_en: 'Organization', featured: true }
   ];
 
   var allPhotos = [];
   var shown = 0;
-  var activeCat = 'সব';
+  var activeCat = STR.all;
   var swiper = null;
 
   function el(tag, attrs, kids) {
@@ -124,9 +148,10 @@
   }
 
   function tile(photo, index, list, extraClass) {
-    var img = el('img', { src: photo.thumb || photo.src, alt: photo.title || 'ছবি', loading: 'lazy' });
-    var cap = el('span', { 'class': 'g-cap', text: photo.title || '' });
-    var b = el('button', { type: 'button', 'class': 'g-slide ' + (extraClass || ''), 'aria-label': (photo.title || 'ছবি') + ' বড় করে দেখুন' }, [img, cap]);
+    var title = field(photo, 'title');
+    var img = el('img', { src: assetUrl(photo.thumb || photo.src), alt: title || STR.photo, loading: 'lazy' });
+    var cap = el('span', { 'class': 'g-cap', text: title });
+    var b = el('button', { type: 'button', 'class': 'g-slide ' + (extraClass || ''), 'aria-label': (title || STR.photo) + STR.viewLarger }, [img, cap]);
     b.addEventListener('click', function () { openLightbox(list, index, b); });
     return b;
   }
@@ -160,7 +185,7 @@
   }
 
   function filtered() {
-    return activeCat === 'সব' ? allPhotos : allPhotos.filter(function (p) { return p.category === activeCat; });
+    return activeCat === STR.all ? allPhotos : allPhotos.filter(function (p) { return field(p, 'category') === activeCat; });
   }
 
   function renderGrid(reset) {
@@ -171,14 +196,14 @@
     next.forEach(function (p, i) { grid.appendChild(tile(p, shown + i, list)); });
     shown += next.length;
     $('#galleryMore').parentNode.hidden = shown >= list.length;
-    if (!list.length) grid.appendChild(el('p', { 'class': 'empty-note', text: 'এই বিভাগে এখনো কোনো ছবি নেই।' }));
+    if (!list.length) grid.appendChild(el('p', { 'class': 'empty-note', text: STR.empty }));
   }
 
   function renderChips() {
     var chips = $('#galleryChips');
     chips.innerHTML = '';
-    var cats = ['সব'];
-    allPhotos.forEach(function (p) { if (p.category && cats.indexOf(p.category) === -1) cats.push(p.category); });
+    var cats = [STR.all];
+    allPhotos.forEach(function (p) { var c = field(p, 'category'); if (c && cats.indexOf(c) === -1) cats.push(c); });
     cats.forEach(function (c) {
       var b = el('button', { type: 'button', 'class': 'chip', 'aria-pressed': String(c === activeCat), text: c });
       b.addEventListener('click', function () {
@@ -210,7 +235,7 @@
     var open = panel.hidden;
     panel.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.textContent = open ? 'ছবি লুকান' : 'সব ছবি দেখুন';
+    toggle.textContent = open ? STR.hide : STR.showAll;
     if (open) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   $('#galleryMore').addEventListener('click', function () { renderGrid(false); });
@@ -226,12 +251,12 @@
   function paint() {
     var p = lbList[lbIdx];
     if (!p) return;
-    lbImg.src = p.src;
-    lbImg.alt = p.title || 'ছবি';
-    lbCap.textContent = p.title || '';
+    lbImg.src = assetUrl(p.src);
+    lbImg.alt = field(p, 'title') || STR.photo;
+    lbCap.textContent = field(p, 'title');
     if (p.date || p.category) {
       var small = document.createElement('small');
-      small.textContent = [p.category, p.date].filter(Boolean).join(' | ');
+      small.textContent = [field(p, 'category'), field(p, 'date')].filter(Boolean).join(' | ');
       lbCap.appendChild(small);
     }
   }
