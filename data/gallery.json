@@ -1,119 +1,158 @@
 {
   "photos": [
     {
-      "src": "assets/images/tanjid_national assembly.jpg",
-      "title": "জাতীয় সংসদ ভবন পরিদর্শন",
+      "src": "assets/images/gallery/btclf_gstu.jpg",
+      "title": "কেন লিখব, কী লিখব, কীভাবে লিখব?",
+      "title_en": "Why Write, What to Write, How to Write?",
+      "category": "কর্মশালা",
+      "category_en": "Workshops",
+      "date": "২৯ অক্টোবর ২০২৬",
+      "date_en": "October 29, 2026",
+      "featured": true
+    },
+    {
+      "src": "assets/images/gallery/tanjid_national%20assembly.jpg",
+      "title": "জাতীয় সংসদ ভবন পরিদর্শন",
+      "title_en": "Visit to the National Parliament House",
       "category": "অন্যান্য",
+      "category_en": "Others",
       "featured": true
     },
-        {
-      "src": "assets/images/tanjid_scondronath.jpg",
-      "title": "চন্দ্রনাথ পাহাড়",
+    {
+      "src": "assets/images/gallery/tanjid_scondronath.jpg",
+      "title": "চন্দ্রনাথ পাহাড়",
+      "title_en": "Chandranath Hill",
       "category": "সংগঠন",
+      "category_en": "Organization",
       "featured": true
     },
-{
-      "src": "assets/images/tanjid_bjc_26.jpg",
+    {
+      "src": "assets/images/gallery/tanjid_bjc_26.jpg",
       "title": "বাংলাদেশ সাংবাদিক সম্মেলন ২০২৬",
+      "title_en": "Bangladesh Journalists Conference 2026",
       "category": "সংগঠন",
+      "category_en": "Organization",
       "featured": true
     },
-{
-      "src": "assets/images/tanjid_julian_bjc.jpg",
+    {
+      "src": "assets/images/gallery/tanjid_julian_bjc.jpg",
       "title": "বাংলাদেশ সাংবাদিক সম্মেলন ২০২৬",
+      "title_en": "Bangladesh Journalists Conference 2026",
       "category": "সংগঠন",
+      "category_en": "Organization",
       "featured": true
     },
-{
-      "src": "assets/images/tanjid_mohima_bjc.jpg",
+    {
+      "src": "assets/images/gallery/tanjid_mohima_bjc.jpg",
       "title": "বাংলাদেশ সাংবাদিক সম্মেলন ২০২৬",
+      "title_en": "Bangladesh Journalists Conference 2026",
       "category": "সংগঠন",
+      "category_en": "Organization",
       "featured": true
     },
-        {
-      "src": "assets/images/tanjid_ta_dinajpur.jpg",
+    {
+      "src": "assets/images/gallery/tanjid_ta_dinajpur.jpg",
       "title": "ক্যারিয়ার মিটআপ দিনাজপুর",
+      "title_en": "Career MeetUp Dinajpur",
       "category": "ক্যারিয়ার",
+      "category_en": "Career",
       "featured": true
     },
-        {
-      "src": "assets/images/tanjid_bdjobs gazipur.jpg",
-      "title": "জব ফেয়ার, গাজীপুর",
+    {
+      "src": "assets/images/gallery/tanjid_bdjobs%20gazipur.jpg",
+      "title": "জব ফেয়ার, গাজীপুর",
+      "title_en": "Job Fair, Gazipur",
       "category": "ক্যারিয়ার",
+      "category_en": "Career",
       "featured": true
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/ta_cm.jpg",
       "title": "ক্যারিয়ার মিটআপ ঢাকা",
+      "title_en": "Career MeetUp Dhaka",
       "category": "ক্যারিয়ার",
+      "category_en": "Career",
       "featured": true
     },
     {
-      "src": "assets/images/tanjid_bbagc_2.jpg",
-      "title": "অধ্যক্ষ মহোদয়ের সঙ্গে সাক্ষাৎ",
+      "src": "assets/images/gallery/tanjid_bbagc_2.jpg",
+      "title": "অধ্যক্ষ মহোদয়ের সঙ্গে সাক্ষাৎ",
+      "title_en": "Meeting with the Principal",
       "category": "সংগঠন",
+      "category_en": "Organization",
       "featured": true
     },
-        {
-      "src": "assets/images/tanjid_bbagc_1.jpg",
+    {
+      "src": "assets/images/gallery/tanjid_bbagc_1.jpg",
       "title": "গ্রুপ প্রেজেন্টেশন",
+      "title_en": "Group presentation",
       "category": "সংগঠন",
+      "category_en": "Organization",
       "featured": true
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/assessment.jpg",
       "title": "অ্যাসেসমেন্ট সেশন",
+      "title_en": "Assessment session",
       "category": "অ্যাসেসমেন্ট",
+      "category_en": "Assessment",
       "featured": true
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/IMG_20260212_234025.jpg",
       "title": "একটি আয়োজনের মুহূর্ত",
+      "title_en": "A moment from an event",
       "category": "কর্মশালা",
-      "featured": true
+      "category_en": "Workshops"
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/btclf.jpg",
       "title": "বাংলাদেশ তরুণ কলাম লেখক ফোরাম",
+      "title_en": "Bangladesh Young Column Writers Forum",
       "category": "সংগঠন",
-      "featured": true
+      "category_en": "Organization"
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/btclf_campus%20feature%20banner.jpg",
       "title": "ক্যাম্পাসের গল্প বুনন",
-      "category": "কর্মশালা"
+      "title_en": "Weaving Campus Stories",
+      "category": "কর্মশালা",
+      "category_en": "Workshops"
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/The%20Digital%20Pen-00.jpg",
       "title": "The Digital Pen",
-      "category": "কর্মশালা"
+      "title_en": "The Digital Pen",
+      "category": "কর্মশালা",
+      "category_en": "Workshops"
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/eden%20feature%2026.jpg",
       "title": "ইডেন মহিলা কলেজে ফিচার কর্মশালা",
-      "category": "কর্মশালা"
+      "title_en": "Feature workshop at Eden Mohila College",
+      "category": "কর্মশালা",
+      "category_en": "Workshops"
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/mpi.jpg",
       "title": "তারুণ্যের উৎসব ২০২৫",
-      "category": "সম্মাননা"
+      "title_en": "Youth Festival 2025",
+      "category": "সম্মাননা",
+      "category_en": "Awards"
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/srw.jpg",
       "title": "শাহীনা রব স্মৃতি পদক",
-      "category": "সম্মাননা"
+      "title_en": "Shahina Rob Memorial Award",
+      "category": "সম্মাননা",
+      "category_en": "Awards"
     },
     {
       "src": "https://rjtanjid24.github.io/me/images/btclf-a.jpg",
       "title": "বর্ষসেরা ফিচার লেখক",
-      "category": "সম্মাননা"
+      "title_en": "Feature Writer of the Year",
+      "category": "সম্মাননা",
+      "category_en": "Awards"
     }
-    {
-  "src": "assets/images/gallery/btclf_gstu.jpg",
-  "title": "কেন লিখব,কী লিখব,কীভাবে লিখব?",
-  "category": "কর্মশালা",
-  "date": "২৯ অক্টোবর ২০২৬",
-  "featured": true
-}
   ]
 }
