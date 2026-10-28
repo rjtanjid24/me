@@ -1,6 +1,12 @@
 {
   "photos": [
     {
+      "src": "assets/images/ta_cm.jpg",
+      "title": "ক্যারিয়ার মিটআপ ঢাকা",
+      "category": "ক্যারিয়ার",
+      "featured": true
+    },
+    {
       "src": "https://rjtanjid24.github.io/me/images/ta_cm.jpg",
       "title": "ক্যারিয়ার মিটআপ ঢাকা",
       "category": "ক্যারিয়ার",
@@ -54,5 +60,12 @@
       "title": "বর্ষসেরা ফিচার লেখক",
       "category": "সম্মাননা"
     }
+    {
+  "src": "assets/images/btclf_gstu.jpg",
+  "title": "কেন লিখব,কী লিখব,কীভাবে লিখব?",
+  "category": "কর্মশালা",
+  "date": "২৯ অক্টোবর ২০২৬",
+  "featured": true
+}
   ]
 }
