@@ -1,6 +1,14 @@
 {
   "photos": [
     {
+      "src": "assets/images/gallery/cm_f_26.jpeg",
+      "title": "ক্যারিয়ার মিটআপ, ফুলবাড়ীয়া-২০২৬",
+      "title_en": "Career MeetUp Fulbaria 2026",
+      "category": "অন্যান্য",
+      "category_en": "Career",
+      "featured": true
+    },
+    {
       "src": "assets/images/gallery/tanjid_national%20assembly.jpg",
       "title": "জাতীয় সংসদ ভবন পরিদর্শন",
       "title_en": "Visit to the National Parliament House",
